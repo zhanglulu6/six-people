@@ -1,0 +1,7 @@
+// 首页底部
+.home .van-icon-add::before
+  font-size 35px
+
+.home .van-tabbar-item:nth-child(3)
+  position relative
+  top -6px
