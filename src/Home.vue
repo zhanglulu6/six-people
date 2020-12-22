@@ -2,7 +2,7 @@
   <div>
     <index></index>
     <login></login>
-    
+
   </div>
 </template>
 
