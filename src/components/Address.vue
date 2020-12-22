@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-view></router-view>
+    目的地页
   </div>
 </template>
 
