@@ -1,0 +1,24 @@
+//登录页全局样式
+.login .login-main
+  margin-left 55px
+  margin-right 20px
+  margin-top 30px
+  line-height 10px
+  position relative
+.login .van-button--large
+  width 90% 
+  height 45px
+  margin-top 20px
+  border-radius 10px
+.login .van-button--large
+  background #ccc
+  border none
+.login .login-main .van-icon
+  position absolute
+  left -35px
+  top 65px
+.login .login-main .van-cell 
+  border-bottom 1px solid #ccc
+  margin-bottom 15px
+.login .login-main .login-user
+  margin-top 15px
