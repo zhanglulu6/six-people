@@ -1,24 +1,58 @@
 //登录页全局样式
-.login .login-main
+.mine .login-main
   margin-left 55px
   margin-right 20px
   margin-top 30px
   line-height 10px
   position relative
-.login .van-button--large
+.mine .van-button--large
   width 90% 
   height 45px
   margin-top 20px
   border-radius 10px
-.login .van-button--large
+.mine .van-button--large
   background #ccc
   border none
-.login .login-main .van-icon
+.mine .login-main .van-icon
   position absolute
   left -35px
   top 65px
-.login .login-main .van-cell 
+.mine .login-main .van-cell 
   border-bottom 1px solid #ccc
   margin-bottom 15px
-.login .login-main .login-user
+.mine .login-main .login-user
   margin-top 15px
+
+// 个人中心的全局样式
+
+.person .van-nav-bar .van-icon
+  color #fff
+// 导航栏的底部边框
+.person .van-nav-bar
+  border-bottom 1px solid #bbb
+// 插件的底部边框
+.route .van-cell
+  margin-top 20px
+  border-bottom 20px solid #eee
+
+// 我的旅游基金
+.route .travel
+  border-bottom 2px solid #eee
+  .van-cell__value
+    color #40d76e
+// 全部行程颜色
+.route .van-cell__value 
+  color #f5b40e
+  font-size 15px
+
+// 定制中的行程字体
+.route .van-cell__title
+  font-size: 15px
+
+// 首页底部
+.home .van-icon-add::before
+  font-size 35px
+
+.home .van-tabbar-item:nth-child(3)
+  position relative
+  top -6px

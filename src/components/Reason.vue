@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-view></router-view>
+    每日推荐页
   </div>
 </template>
 

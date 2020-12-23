@@ -1,0 +1,37 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1239033",
+      "name": "钱袋",
+      "font_class": "qiandai",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "7587931",
+      "name": "编辑",
+      "font_class": "bianji",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "9902643",
+      "name": "优惠券",
+      "font_class": "youhuiquan",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "13151583",
+      "name": "line_行李箱",
+      "font_class": "line_hanglixiang",
+      "unicode": "e676",
+      "unicode_decimal": 58998
+    }
+  ]
+}
