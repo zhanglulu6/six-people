@@ -25,7 +25,7 @@
       </van-cell-group>
       
     </div>
-    <van-button type="primary" size="large" @click="logincommit()" >登录</van-button>
+    <van-button type="primary" size="large" @click="login()" >登录</van-button>
   </div>
 
 
@@ -59,11 +59,11 @@ export default defineComponent({
       this.$router.push("./Person");
     },
   },
-  setup(){
-    // 数据
-    // 事件
+  // setup(){
+  //   // 数据
+  //   // 事件
     
-  }
+  // }
 });
 </script>
 <style lang="stylus" scoped>
