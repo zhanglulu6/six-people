@@ -1,6 +1,7 @@
 // 封装接口
-import http from "./index";
+import http from "./http";
 
+// 毛苏玲接口
 // 首页的最受欢迎列表接口
 export const getHomeBannerApi = (params: any) => http.get("/home/swiper", params);
 
@@ -15,3 +16,9 @@ export const getHomeBannerApi = (params: any) => http.get("/home/swiper", params
 
 // 城市选择列表
 // export const getCitiesListApi = params => http.get("/area/list", params);
+
+// 蒋粤接口
+//post的方式来获取数据登录的数据，但是前端要给后端传入参数进去然后去和后端匹配有没有这个数据，有的话就匹配成功，登录成功，没有就是登录失败
+// export const getlogindataApi = params => {
+//   return http.post("/login",params);
+// }

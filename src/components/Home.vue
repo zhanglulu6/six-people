@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" >
     <router-view></router-view>
     <van-tabbar v-model="active" route :placeholder="true" :fixed="true" active-color="#27d461">
       <van-tabbar-item
@@ -15,12 +15,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { ref } from 'vue';
+import { defineComponent, ref } from 'vue';
+
+import { LoginParamsType } from "../interface/index";
 export default defineComponent ({
   data() {
     return {
       // active: 0,
+      // 底部渲染可以 循环的数据
       footerList: [
         {
           icon: "wap-home",
@@ -52,7 +54,11 @@ export default defineComponent ({
           to: "/mine",
           dot: false
         }
-      ]
+      ],
+      obj:{
+        username:"lili",
+        phone:123456789
+      } as LoginParamsType
     };
   },
   setup() {
