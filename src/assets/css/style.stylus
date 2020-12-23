@@ -5,3 +5,44 @@
 .home .van-tabbar-item:nth-child(3)
   position relative
   top -6px
+
+// 首页轮播图
+.home .custom-indicator[data-v-6bb4a9d5]
+  color white
+
+// 提交需求页
+.demand .van-nav-bar__title
+  font-size 0.6rem
+  font-weight 700
+
+.demand .van-icon-arrow-left::before
+  font-size 0.6rem
+  color black
+
+.demand .van-cell__title
+  text-align left
+  font-size 16px
+
+.demand .van-button--normal
+  padding 0 0.6rem
+  border none
+
+.demand .van-picker__toolbar
+  background #27d461
+
+.demand .van-picker__cancel, .van-picker__confirm
+  font-size 18px
+  font-weight 500
+  color #fff
+
+.demand .text-first
+  position absolute
+  top 44px
+  padding 10px 76px
+  font-size 18px
+  background #ccc
+
+.demand .text-first span
+  display inline-block
+  color black
+  font-weight 700

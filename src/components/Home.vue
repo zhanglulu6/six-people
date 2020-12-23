@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <router-view></router-view>
-    <van-tabbar v-model="active" route :placeholder="true" :fixed="true" active-color="#27d461" inactive-color="#000">
+    <van-tabbar v-model="active" route :placeholder="true" :fixed="true" active-color="#27d461">
       <van-tabbar-item
         v-for="item in footerList"
         :key="item.to"
