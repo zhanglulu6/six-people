@@ -85,8 +85,8 @@ export default defineComponent ({
       .reason-second-p
         width 100px
         height 20px
-        border 1px solid #ccc
-        background #ccc
+        border 1px solid #eee
+        background #eee
         text-align center
         line-height 20px
         border-radius 5px

@@ -1,5 +1,5 @@
 <template>
-<!-- 登录页面 -->
+<!-- 点开我的页面进入登录页面 -->
   <div class="mine" >
     <p>手机号登录</p>
     <p></p>
@@ -25,46 +25,58 @@
       </van-cell-group>
       
     </div>
-    <van-button type="primary" size="large" @click="login()" >登录</van-button>
+    <van-button type="primary" size="large" @click="login()"  :color="istrue" >登录</van-button>
   </div>
-
-
-  <!-- 个人中心的页面 -->
 </template>
 
 <script lang="ts">
 // 定义组件和一些vue3里面可以用到的东西
-import { defineComponent,ref, PropType} from "vue";
+// import { defineComponent,ref, PropType} from "vue";
 //登录传给后端的参数类型的数据接口
 import { LoginParamsType } from "../interface/index";
+//引入接口请求
+import { getlogindataApi } from "../utils/api";
 
-export default defineComponent({
+// import { Mine } from "../store/Mine";
+import { Toast } from 'vant';
+import { store } from '../store/index';
+// import MineModule from '../store/Mine/index';
+export default {
   name: "Mine",
   data() {
     return {
       username: '',
-      phone: ''
+      phone: '',
+      istrue: "#d3d80c"
     };
   },
-  
-  methods: {
-    login() {
-    //   beforeEnter: (to, from, next) => {
-    //   if (!localStorage.getItem("token")) {
-    //     next("/mine");
-    //   } else {
-    //     next();
-    //   }
-    // }
-      this.$router.push("./Person");
-    },
-  },
-  // setup(){
-  //   // 数据
-  //   // 事件
+  mounted(){
     
-  // }
-});
+  },
+  computed:{
+    msg() {
+      //返回的数据可以在页面中使用
+      return this.$store.state.mine.Logindata;
+    }
+  },
+  methods: {
+    //登录的事件触发跳转到个人中心
+   login() {
+      // 从组件出发分发是actions里面的，也就是从数据接口来回去数据
+      this.$store.dispatch("mine/getLoginactions",{
+        username: this.username,
+        phone: this.phone
+      });
+      if(this.msg === '登入成功'){
+        Toast('登入成功');
+        // 登录成功进入个人中心
+        this.$router.push("./Person");
+      }else{
+        Toast('用户名或手机号码错误');
+      }
+    }
+  }
+};
 </script>
 <style lang="stylus" scoped>
 .mine p

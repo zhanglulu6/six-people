@@ -23,21 +23,28 @@
 .mine .login-main .login-user
   margin-top 15px
 
+// 注册的全局样式
+.register .van-cell
+  padding: 15px 70px
+.register .van-nav-bar .van-icon
+  color #ccc
+.reg-name .van-field__body,.reg-email .van-field__body,.reg-phone .van-field__body,.reg-address .van-field__body,.reg-code .van-field__body
+  margin-left -30px
 // 个人中心的全局样式
 
 .person .van-nav-bar .van-icon
-  color #fff
+  color #bbb
 // 导航栏的底部边框
 .person .van-nav-bar
   border-bottom 1px solid #bbb
 // 插件的底部边框
 .route .van-cell
   margin-top 20px
-  border-bottom 20px solid #eee
+  border-bottom 1px solid #eee
 
 // 我的旅游基金
 .route .travel
-  border-bottom 2px solid #eee
+  // border-bottom 1px solid #eee
   .van-cell__value
     color #40d76e
 // 全部行程颜色

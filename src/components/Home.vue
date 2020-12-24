@@ -51,7 +51,7 @@ export default defineComponent ({
         {
           icon: "friends",
           title: "我的",
-          to: "/mine",
+          to: "/reg",
           dot: false
         }
       ],

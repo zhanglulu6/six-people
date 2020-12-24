@@ -34,17 +34,23 @@ const routes = [
       {
         path: "/mine",
         component: () => import("../components/Mine.vue")
-      },
-      //这个是点击登录的时候跳转的页面，但是底下还是有底部导航的，所以是二级路由
-      {
-        path: "/person",
-        component: () => import("../components/Person.vue")
       }
     ]
   },
+  // 详情页
   {
     path:"/detail",
     component: () => import("../components/Detail.vue")
+  },
+  // 注册页面
+  {
+    path: "/reg",
+    component: () => import("../components/Reg.vue")
+  },
+  //这个是点击登录的时候跳转的页面，但是底下还是有底部导航的，所以是二级路由
+  {
+    path: "/person",
+    component: () => import("../components/Person.vue")
   },
   //提交需求页
   {
@@ -56,6 +62,7 @@ const routes = [
     path: "/journey",
     component: () => import("../components/Journey.vue")
   },
+  // 定制中的行程
   {
     path: "/precious",
     component: () => import("../components/Precious.vue")
@@ -69,7 +76,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes,
+  routes
 });
 
 // 这个是最终导出的路由
