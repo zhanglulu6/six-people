@@ -67,7 +67,7 @@
           <template #button>
             <van-button size="small" type="primary" class="code-button" @click="sendcode()" :color="isfalse" >获取验证码</van-button>
             <!-- <van-count-down :time="time" /> -->
-            <span style="font-size:14px;position: absolute;top:9px;right:-45px;" class="code-timer">{{ count }}s</span>
+            <span style="font-size:14px;position: absolute;top:9px;right:-45px;" class="code-timer">{{ count }}</span>
           </template>
         </van-field>
       </div>
@@ -117,13 +117,12 @@ export default {
         // 获取验证码需要将电话传过去
        email: this.email
       });
-      // this.$store.state.reg.Regdata = this.time;
-
-          const TIME_COUNT = 60;
-          if (!this.timer) {
+      
+      const TIME_COUNT = 60;
+      if (!this.timer) {
             this.count = TIME_COUNT;
             this.show = false;
-            // this.timer = setInterval(() => {
+            this.timer = setInterval(() => {
               if (this.count > 0 && this.count <= TIME_COUNT) {
                 this.count -= 1;
               } else {
@@ -132,9 +131,8 @@ export default {
                 this.timer = null;
                 this.count = "";
               }
-            // }, 1000); 
-          }
-        
+            }, 1500); 
+          }        
     },
     //注册
     reg(){

@@ -4,7 +4,7 @@
 // qs.stringify()是将对象 序列化成URL的形式，以&进行拼接
 import * as qs from "qs";
 //7.接口地址前缀写成变量好修改
-const prefix = "http://10.31.162.61:8888/api";
+const prefix = "http://10.31.162.61:8888";
 const http = {
   get(url:string, params:any) {
     if (params) {
