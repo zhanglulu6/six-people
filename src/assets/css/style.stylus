@@ -49,6 +49,7 @@
 .route .van-cell__title
   font-size: 15px
 
+// 毛苏玲
 // 首页底部
 .home .van-icon-add::before
   font-size 35px
@@ -60,6 +61,19 @@
 // 首页轮播图
 .home .custom-indicator[data-v-6bb4a9d5]
   color white
+
+// 首页目的地
+.index .address ul[data-v-6bb4a9d5]
+  margin-bottom 10px
+
+// 首页策划
+.index .plan .plan-photo-ul li p[data-v-6bb4a9d5]
+  margin 0
+  text-align left
+  color black
+  font-size 0.45rem
+  margin-bottom 3px
+  font-weight 700
 
 // 提交需求页
 .demand .van-nav-bar__title
@@ -97,3 +111,27 @@
   display inline-block
   color black
   font-weight 700
+
+// 选择目的地页头部
+.choose .van-icon-search::before
+  color black
+
+.choose .van-icon-arrow-left::before
+  color black
+  font-size 20px
+
+.choose .van-nav-bar__title
+  font-size 0.5rem
+
+.choose .van-nav-bar__content
+  background #f9f9f9
+
+// 全部的定制行程头部
+.precious .van-icon-search::before
+  color black
+
+.precious .van-icon-arrow-left::before
+  color black
+
+.precious .van-nav-bar__title
+  font-size 0.5rem

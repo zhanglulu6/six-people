@@ -1,9 +1,9 @@
-// import { getHomeBannerApi } from "../../utils/api";
+import { getHomeBannerApi } from "../../utils/api";
 
-// export default {
-//   async getHomeBannerApi({commit}) {
-//     console.log(res)
-//     const res = await getHomeBannerApi();
-//     commit("ratedMutation", res.list);
-//   }
-// };
+export default {
+  async getBannerListApi({ commit }:any) {
+    const res = await getHomeBannerApi({});
+    commit("changeBannerList", res.list);
+    // console.log(res.list);
+  }
+};

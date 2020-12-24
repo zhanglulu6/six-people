@@ -4,3 +4,8 @@ export interface LoginParamsType{
   username:string,
   phone:number
 }
+
+export interface DemandType{
+  value: string,
+  showsecond: boolean
+}

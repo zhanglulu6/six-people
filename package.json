@@ -7,11 +7,8 @@
   },
   "dependencies": {
     "amfe-flexible": "^2.2.1",
-<<<<<<< HEAD
     "default-passive-events": "^2.0.0",
     "nprogress": "^0.2.0",
-=======
->>>>>>> da0fa08bdbc982bdd00cdde945a4822f0ada1992
     "qs": "^6.9.4",
     "vant": "^3.0.0-rc.3",
     "vue": "^3.0.4",

@@ -2,10 +2,10 @@ import state from "./state";
 import mutations from "./mutations";
 import actions from "./actions";
 
-const banner = {
+const travel = {
   state,
   mutations,
   actions
 };
 
-export default banner;
+export default travel;

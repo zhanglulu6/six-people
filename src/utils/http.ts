@@ -1,4 +1,4 @@
-import qs from "qs";
+import * as qs from "qs";
 // import NProgress from "nprogress";//这是进度条的功能可以不用已经注销掉了
 
 // 封装请求

@@ -1,116 +1,385 @@
 <template>
   <div class="index">
+    <!-- 轮播图 -->
     <div style="position:relative">
        <!-- 轮播图 -->
       <van-swipe @change="onChange" class="my-swipe" :autoplay="3000">
-        <van-swipe-item v-for="item in bannerList" :key="item">
-          <img :src="item" />
+        <van-swipe-item v-for="item in bannerList" :key="item.id">
+          <img :src="item.imgUrl" />
+          <!-- 轮播图里的文字 -->
+          <span class="imgWord">
+            <span class="imgtitle">{{ item.title }}</span>
+            <p class="imgWordWidth">{{ item.content }}</p>
+          </span>
         </van-swipe-item>
         <template #indicator>
           <div class="custom-indicator">{{ current + 1 }}/3</div>
         </template>
       </van-swipe>
-      <!-- 轮播图里的文字 -->
-      <!-- <div class="text-top" v-for="item in bannerText" :key="item.title">
-        <h4 style="margin-top: 0;margin-bottom: 0;">{{ item.title }}</h4>
-        <p>{{ item.detitle }}</p>
-      </div> -->
       <!-- 轮播图里的按钮 -->
       <van-button icon="plus" type="primary" to="demand" color="#58d18a" class="button-first">提交需求</van-button>
       <van-button icon="notes-o" type="primary" to="journey" color="#58d18a" class="button-second">我的行程方案</van-button>
     </div>
+
+    <!-- 首页的目的地 -->
+    <div class="address">
+      <div class="address-title">
+        <span>目的地</span>
+        <span class="address-title-second">更多</span>
+      </div>
+      <ul class="address-text">
+        <li v-for="item in addressList" :key="item.index" @click="addressClick" class="address-first-li">{{ item }}</li>
+      </ul>
+    </div>
+
+    <!-- 首页目的地图片 -->
+    <div class="address-photo">
+      <ul class="address-photo-ul">
+        <li v-for="item in addressPhotoList" :key="item.id" @click="addressPhotoClick">
+          <img :src="item.imgUrl" />
+          <span>{{ item.title }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 首页的深度策划 -->
+    <div class="plan">
+      <div class="plan-title">
+        <span>深度策划</span>
+        <span class="plan-title-second">更多</span>
+      </div>
+      <ul class="plan-photo-ul">
+        <li v-for="item in planList" :key="item.id" @click="addressPhotoClick">
+          <img :src="item.imgUrl" />
+          <p>{{ item.title }}</p>
+          <span>{{ item.content }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 首页的旅游灵感 -->
+    <div class="travel">
+      <h4>旅游灵感</h4>
+      <ul class="travel-top">
+        <li v-for="item in travelList" :key="item.id" @click="addressPhotoClick">
+          <lazy-component class="reason-img">
+            <img v-lazy="item.imgUrl" />
+          </lazy-component>
+          <div class="top-first">
+            <span>{{ item.title }}</span>
+            <h6>{{ item.content }}</h6>
+          </div>
+        </li>
+      </ul>
+    </div>
+
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { ref } from 'vue';
+import { Toast } from "vant";
 export default defineComponent ({
   data() {
     return {
-      bannerList: [],
-      // bannerText: [
-      //   {
-      //     title:"莫高千佛·敦煌",
-      //     detitle:"壁画临摹,飞天旅拍,沙漠下午茶"
-      //   },
-      //   {
-      //     title:"北国童话",
-      //     detitle:"雪中小镇,雾凇温泉,冰湖冬捕"
-      //   },
-      //   {
-      //     title:"彩云之南,西双版纳",
-      //     detitle:"孔雀雨林,傣寨金佛,假装在泰国"
-      //   }
-      // ],
-      // bannerTextIndex: 0
-    }
+      // 1.bannerList: [],
+    };
   },
   setup() {
     const current = ref(0);
     const onChange = (index) => {
       current.value = index;
     };
+
+    // 加载中
+    Toast.loading({
+      message: '加载中...',
+      forbidClick: true,
+    });
+
     return {
       current,
       onChange,
     };
   },
-  methods: {
-    getBannerList() {
-      fetch("http://10.31.162.61:8888/home/swiper")
-        .then(response => response.json())
-        .then(res => {
-          if (res.status === 0) {
-            this.bannerList = res.list;
-          }
-        });
+  // 1.轮播图接收用传统方式
+  // methods: {
+  //   getBannerList() {
+  //     fetch("http://10.31.162.61:8888/home/swiper")
+  //       .then(response => response.json())
+  //       .then(res => {
+  //         if (res.status === 0) {
+  //           this.bannerList = res.list;
+  //         }
+  //       });
+  //   }
+  // },
+  computed: {
+    // 2.轮播图接收state数据用vuex
+    bannerList() {
+      return this.$store.state.banner.bannerList;
+    },
+    // 目的地
+    addressList() {
+      return this.$store.state.address.addressList;
+    },
+    addressPhotoList() {
+      return this.$store.state.photo.addressPhotoList;
+    },
+    // 策划
+    planList() {
+      return this.$store.state.plan.planList;
+    },
+    // 旅游灵感
+    travelList() {
+      return this.$store.state.travel.travelList;
     }
   },
   mounted() {
-    this.getBannerList();
+    // 1.轮播图接收用传统方式
+    // this.getBannerList();
+    // 2.轮播图触发actions用vuex
+    this.$store.dispatch("getBannerListApi");
+    // setTimeout(() => {
+    //   console.log(this.bannerList)
+    // }, 2000)
+
+    // 首页的目的地
+    this.$store.dispatch("getHomeAddressApi");
+
+    // 首页目的地图片
+    this.$store.dispatch("getHomeAddressPhotoApi");
+
+    // 首页的策划
+    this.$store.dispatch("getHomePlanApi");
+
+    // 首页的旅游灵感
+    this.$store.dispatch("getHomeTravelApi");
+  },
+  methods: {
+    addressClick() {
+      return this.$router.push("/address")
+    },
+    addressPhotoClick() {
+      return this.$router.push("/detail")
+    }
   }
 })
 </script>
 
 <style lang="stylus" scoped>
-// .index .text-top {
-//   position: absolute;
-//   bottom: 70px;
-//   left: 20px;
-//   font-size: 25px;
+.index 
+  .button-first 
+    position absolute
+    bottom 25px
+    left 26px
+    width 150px
+    font-size 16px
+  
+
+  .button-second 
+    position absolute
+    bottom 25px
+    right 26px
+    font-size 16px
+  
+
+  .my-swipe .van-swipe-item 
+    color #fff
+    height 250px
+    background-color #39a9ed
+
+    img
+      width 100%
+      height 100%
     
-// }
-.index .button-first {
-  position: absolute;
-  bottom: 25px;
-  left: 26px;
-  width: 150px;
-  font-size: 16px;
-}
 
-.index .button-second {
-  position: absolute;
-  bottom: 25px;
-  right: 26px;
-  font-size: 16px;
-}
+    .imgWord
+      position absolute
+      top 48%
+      left 20px
+      width 100%
+      text-align left
 
-.my-swipe .van-swipe-item {
-  color: #fff;
-  height: 250px;
-  background-color: #39a9ed;
+      .imgtitle
+        font-size 20px
+      
 
-  img {
-    width: 100%;
-    height: 100%;
-  }
-}
-.custom-indicator {
-    position: absolute;
-    top: 40%;
-    left: 20px;
-    // transform: translateX(-50%);
-    font-size: 20px;
-  }
+      .imgWordWidth 
+        margin-top: 0
+        margin-bottom: 0
+        font-size: 16px
+      
+    
+
+  .custom-indicator 
+    position absolute
+    top 40%
+    left 20px
+    font-size 20px
+  
+  .address
+    .address-title
+      padding 20px
+      display flex
+      justify-content space-between
+      align-items center
+
+      span:nth-of-type(1)
+        font-weight 700
+        font-size 22px
+        color black
+
+      .address-title-second
+        font-size 16px
+
+    .address-text
+      display flex
+      flex-wrap wrap
+      justify-content center
+      align-items center
+
+      
+      .address-first-li
+        width 72px
+        height 41px
+        line-height 41px
+        font-size 16px
+        border 1px solid #ccc
+        border-radius 10px
+        background #f9f9f9
+        color black
+
+      .address-first-li:nth-of-type(1)
+        margin-bottom 10px
+        margin-right 10px
+
+      .address-first-li:nth-of-type(2)
+        margin-bottom 10px
+        margin-right 10px
+
+      .address-first-li:nth-of-type(3)
+        margin-bottom 10px
+        margin-right 10px
+
+      .address-first-li:nth-of-type(4)
+        margin-bottom 10px
+      
+      .address-first-li:nth-of-type(5)
+        margin-right 10px
+        
+      .address-first-li:nth-of-type(6)
+        margin-right 10px
+
+      .address-first-li:nth-of-type(7)
+        margin-right 10px
+
+  .address-photo
+    padding 0 20px
+
+    .address-photo-ul
+      display flex
+      overflow auto
+
+      li
+        list-style none
+        margin-right 10px
+        flex 1
+        position relative
+
+        img
+          width 100px
+          height 100px
+
+        span
+          position absolute
+          left 5px
+          bottom 5px
+          font-size 18px
+          color #fff
+
+  .plan
+    padding 0 20px
+
+    .plan-title
+      padding 15px 0
+      display flex
+      justify-content space-between
+      align-items center
+
+      span:nth-of-type(1)
+        font-weight 700
+        font-size 22px
+        color black
+
+      .plan-title-second
+        font-size 16px
+
+    .plan-photo-ul
+      display flex
+      overflow auto
+
+      li
+        list-style none
+        margin-right 10px
+        flex 1
+        position relative
+
+        img
+          width 140px
+          height 170px
+
+        span
+          display inline-block
+          font-size 14px
+          text-align left
+          color black
+
+  .travel
+    padding 0 20px
+
+    h4
+      text-align left
+      color black
+      font-size 22px
+    
+    .travel-top
+      width 100%
+
+      li
+        width 100%
+        height 180px
+        margin-bottom 15px
+        position relative
+
+        .reason-img
+           width 100%
+           height 100%
+           
+          img
+            width 100%
+            height 100%
+            border-radius 10px
+
+        .top-first
+          position absolute
+          top 50%
+          left 50%
+          transform translate(-50%,-50%)
+          width 100%
+          padding-top 30px
+          color #fff
+
+          span
+            display inline-block
+            margin-bottom 5px
+            border-bottom 2px solid #fff
+          
+          h6
+            margin-top 0
+            font-size 16px
+            font-weight 400
+    
+
 </style>

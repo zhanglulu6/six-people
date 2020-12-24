@@ -35,7 +35,7 @@
             <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-line_hanglixiang"></use>
             </svg>
-            <van-cell title="定制中的行程" is-link value="全部行程"  />
+            <van-cell title="定制中的行程" is-link value="全部行程"  to="/precious" />
             <!-- 我的旅游基金 -->
             <svg class="icon" aria-hidden="true" style="position:absolute;top:52%;left:5%;z-index:999;font-size: 25px">
             <use xlink:href="#icon-qiandai"></use>

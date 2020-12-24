@@ -42,15 +42,25 @@ const routes = [
       }
     ]
   },
+  {
+    path:"/detail",
+    component: () => import("../components/Detail.vue")
+  },
   //提交需求页
   {
     path: "/demand",
     component: () => import("../components/Demand.vue")
   },
+  // 完善需求页
   {
     path: "/journey",
     component: () => import("../components/Journey.vue")
   },
+  {
+    path: "/precious",
+    component: () => import("../components/Precious.vue")
+  },
+  // 选择目的地页
   {
     path: "/chooseaddress",
     component: () => import("../components/ChooseAddress.vue")
