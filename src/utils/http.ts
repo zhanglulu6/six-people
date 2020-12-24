@@ -1,9 +1,11 @@
-import qs from "qs";
-// import NProgress from "nprogress";//这是进度条的功能可以不用已经注销掉了
-
-// 封装请求
-const prefix = "http://10.31.162.61:8888";
-const http: any = {
+//接口请求的封装
+//配全局属性配置，在任意组件内可以使用this.$qs获取qs对象
+// qs.parse()是将URL解析成对象的形式
+// qs.stringify()是将对象 序列化成URL的形式，以&进行拼接
+import * as qs from "qs";
+//7.接口地址前缀写成变量好修改
+const prefix = "http://10.31.162.61:8888/api";
+const http = {
   get(url:string, params:any) {
     // console.log(params);
     if (params) {
