@@ -1,4 +1,5 @@
 <template>
+<!-- 个人中心的定制中的行程点击之后进去的页面 -->
   <div class="precious">
     <!-- 全部定制行程的头部 -->
     <van-nav-bar title="定制中的行程" left-arrow @click-left="onClickLeft">

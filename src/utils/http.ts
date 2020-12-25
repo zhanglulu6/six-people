@@ -1,6 +1,7 @@
 import * as qs from "qs";
+// import axios from "axios";
 // import NProgress from "nprogress";//这是进度条的功能可以不用已经注销掉了
-
+import { Toast } from "vant";
 // 封装请求
 const prefix = "http://42.192.151.14:3000";
 const http: any = {
@@ -52,6 +53,26 @@ const http: any = {
         }
       });
   }
+
+
+  
+  // post(url:string, params:any) {
+  //   return new Promise((resolve, reject) => {
+  //     axios
+  //       .post(url, params)
+  //       .then(res => {
+  //         if (res.status === "0") {
+  //           resolve(res);
+  //         } else {
+  //           // Toast(res.msg);
+  //         }
+  //       })
+  //       .catch(err => {
+  //         // Toast(err.message);
+  //         reject(err);
+  //       });
+  //   });
+  // }
 };
 
 export default http;

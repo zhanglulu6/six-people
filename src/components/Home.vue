@@ -51,16 +51,17 @@ export default defineComponent ({
           dot: false
         },
         {
+          // 点击我的跳转登录页面，如果有之前注册的就直接登录，上一次没有注册的就跳转注册页面注册结束之后再登录
           icon: "friends",
           title: "我的",
-          to: "/reg",
+          to: "/mine",
           dot: false
         }
       ],
-      obj:{
-        username:"lili",
-        phone:123456789
-      } as LoginParamsType
+      // obj:{
+      //   username:"lili",
+      //   phone:123456789
+      // } as LoginParamsType
     };
   },
   methods: {

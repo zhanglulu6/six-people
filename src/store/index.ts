@@ -12,10 +12,10 @@ import deepplay from "../store/deepplay"
 import detail from "../store/detail"
 
 // 蒋粤
-import mine from '../store/mine'
-import reg from "../store/reg"
-import codes from "../store/codes"
-
+import mine from '../store/mine';
+import reg from "../store/reg";
+import codes from "../store/codes";
+import per from "../store/Per";
 // 这里飘红线是因为版本问题
 // import banner from "./banner/index"
 
@@ -42,7 +42,8 @@ export const store = createStore<any>({
     // 蒋粤
     mine,
     reg,
-    codes
+    codes,
+    per
   }
 });
 

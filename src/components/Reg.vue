@@ -15,6 +15,7 @@
           name="用户名"
           label="用户名"
           placeholder="请输入用户名"
+          :name="pattern"
           :rules="[{ required: true, message: '请填写用户名' }]"
         />
       </div>
@@ -67,7 +68,7 @@
           <template #button>
             <van-button size="small" type="primary" class="code-button" @click="sendcode()" :color="isfalse" >获取验证码</van-button>
             <!-- <van-count-down :time="time" /> -->
-            <span style="font-size:14px;position: absolute;top:9px;right:-45px;" class="code-timer">{{ count }}s</span>
+            <span style="font-size:14px;position: absolute;top:9px;right:-45px;" class="code-timer">{{ count }}</span>
           </template>
         </van-field>
       </div>
@@ -97,10 +98,12 @@ export default {
       // yzm: "获取验证码"
       show: true,
 	    count: '',
-	    timer: null,
+      timer: null,
+      pattern: /\d{6}/,
     };
   },
   computed: {
+    // 响应式数据的变化
     msg(){
       // 信息取到了
       return this.$store.state.reg.Regdata;
@@ -115,30 +118,31 @@ export default {
     sendcode(){
       this.$store.dispatch("codes/getCodeactions",{
         // 获取验证码需要将电话传过去
-       email: this.email
+       email: this.email,
+       phone:this.phone
       });
-      // this.$store.state.reg.Regdata = this.time;
+      Toast("验证码已发送到邮箱，请注意查收!");
 
-          const TIME_COUNT = 60;
-          if (!this.timer) {
-            this.count = TIME_COUNT;
-            this.show = false;
-            // this.timer = setInterval(() => {
-              if (this.count > 0 && this.count <= TIME_COUNT) {
-                this.count -= 1;
-              } else {
-                this.show = true;
-                clearInterval(this.timer);
-                this.timer = null;
-                this.count = "";
-              }
-            // }, 1000); 
-          }
-        
+      const TIME_COUNT = 60;
+      if (!this.timer) {
+          this.count = TIME_COUNT;
+          this.show = false;
+          this.timer = setInterval(() => {
+            if (this.count > 0 && this.count <= TIME_COUNT) {
+              this.count -= 1;
+            } else {
+              this.show = true;
+              clearInterval(this.timer);
+              this.timer = null;
+              this.count = "";
+            }
+          }, 1500); 
+      }        
     },
-    //注册
+    //注册来跳转页面
     reg(){
       // this.$router.push("/mine");
+      
       this.$store.dispatch("reg/getRegactions",{
         // 传入的参数
         username: this.username,
@@ -153,11 +157,11 @@ export default {
         // 注册成功跳转登录页面然后再进入个人中心
         this.$router.push("./Mine");
       }else{
-        Toast('注册信息不全请重新输入');
+        Toast('注册信息错误无法登录哦');
       }
     },
     radio(){
-      Toast('验证码已经发送到你的手机上');
+      Toast('验证码已发送到你的手机上');
     }
   }
 };

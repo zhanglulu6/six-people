@@ -1,61 +1,3 @@
-//登录页全局样式
-.mine .login-main
-  margin-left 55px
-  margin-right 20px
-  margin-top 30px
-  line-height 10px
-  position relative
-.mine .van-button--large
-  width 90% 
-  height 45px
-  margin-top 20px
-  border-radius 10px
-.mine .van-button--large
-  background #ccc
-  border none
-.mine .login-main .van-icon
-  position absolute
-  left -35px
-  top 65px
-.mine .login-main .van-cell 
-  border-bottom 1px solid #ccc
-  margin-bottom 15px
-.mine .login-main .login-user
-  margin-top 15px
-
-// 注册的全局样式
-.register .van-cell
-  padding: 15px 70px
-.register .van-nav-bar .van-icon
-  color #ccc
-.reg-name .van-field__body,.reg-email .van-field__body,.reg-phone .van-field__body,.reg-address .van-field__body,.reg-code .van-field__body
-  margin-left -30px
-// 个人中心的全局样式
-
-.person .van-nav-bar .van-icon
-  color #bbb
-// 导航栏的底部边框
-.person .van-nav-bar
-  border-bottom 1px solid #bbb
-// 插件的底部边框
-.route .van-cell
-  margin-top 20px
-  border-bottom 1px solid #eee
-
-// 我的旅游基金
-.route .travel
-  // border-bottom 1px solid #eee
-  .van-cell__value
-    color #40d76e
-// 全部行程颜色
-.route .van-cell__value 
-  color #f5b40e
-  font-size 15px
-
-// 定制中的行程字体
-.route .van-cell__title
-  font-size: 15px
-
 // 毛苏玲
 // 首页轮播图
 .home .custom-indicator[data-v-6bb4a9d5]
@@ -73,6 +15,9 @@
   font-size 0.45rem
   margin-bottom 3px
   font-weight 700
+
+.index .travel .travel-top li .top-first span[data-v-6bb4a9d5]
+  font-size 33px
 
 // 提交需求页
 .demand .van-nav-bar__title
@@ -158,4 +103,111 @@
   font-weight 700
   margin-left 12px
 
-// 张璐璐
+
+// 蒋粤
+//登录页全局样式
+.mine .login-main
+  margin-left 55px
+  margin-right 20px
+  margin-top 30px
+  line-height 10px
+  position relative
+.mine .van-button--large
+  width 90% 
+  height 45px
+  margin-top 20px
+  border-radius 10px
+.mine .van-button--large
+  background #ccc
+  border none
+.mine .login-main .van-icon
+  position absolute
+  left -33px
+  top 60px
+.mine .login-main .van-cell 
+  border-bottom 1px solid #ccc
+  margin-bottom 15px
+.mine .login-main .login-user
+  margin-top 15px
+
+// 注册的全局样式
+.register .van-cell
+  padding: 15px 70px
+.register .van-nav-bar .van-icon
+  color #ccc
+.reg-name .van-field__body,.reg-email .van-field__body,.reg-phone .van-field__body,.reg-address .van-field__body,.reg-code .van-field__body
+  margin-left -30px
+// 个人中心的全局样式
+
+.person .van-nav-bar .van-icon
+  color #bbb
+// 导航栏的底部边框
+.person .van-nav-bar
+  border-bottom 1px solid #bbb
+// 插件的底部边框
+.route .van-cell
+  margin-top 20px
+  border-bottom 1px solid #eee
+
+// 我的旅游基金
+.route .travel
+  // border-bottom 1px solid #eee
+  .van-cell__value
+    color #40d76e
+// 全部行程颜色
+.route .van-cell__value 
+  color #f5b40e
+  font-size 15px
+
+// 定制中的行程字体
+.route .van-cell__title
+  font-size: 15px
+.mine .van-button--large
+  margin-top: 50px
+
+// 提供需求完成之后跳转的页面的样式
+.journey
+  background #ccc
+  //左边箭头的样式
+  .van-nav-bar .van-icon
+    font-size  20px
+    color #000
+  //需求行程的图片和加号
+  .journey-main
+    width 100%
+    position relative
+    .journey-top
+      width 90%
+      border 1px solid #ccc
+      position absolute
+      top 44px
+      left 50%
+      transform translateX(-50%)
+      .journey-second
+        padding 20px 0 0 0
+        .custom-image
+          width 100%
+          height 80%
+          padding 0
+          img
+            width 100%
+            height 60%
+        p
+          margin-bottom 0
+        
+  //底部确定按钮
+  .confirm
+    position absolute
+    bottom 0
+    left 50%
+    transform translateX(-50%)
+    width 100%
+    height 50px
+    background #27d461
+    line-height 50px
+    color #fff
+    font-size 15px
+  .van-nav-bar__text
+    color #27d461
+  .van-nav-bar__title
+    font-size 17px

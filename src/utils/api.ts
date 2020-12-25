@@ -32,7 +32,7 @@ export const getDetailApi = (params: any) => http.get("/home/traveldetail", para
 // }
 // 封装接口，引入HTTP
 // 参数的数据类型接口
-import { LoginParamsType, RegParamsType, CodeParamsType } from "../interface/index";
+import { LoginParamsType, RegParamsType, CodeParamsType, PersonParamsType } from "../interface/index";
 //post的方式来获取数据登录的数据，但是前端要给后端传入参数进去然后去和后端匹配有没有这个数据，有的话就匹配成功，登录成功，没有就是登录失败
 export const getlogindataApi: any = (params:LoginParamsType) =>{
   return http.post("/api/login",params);
@@ -53,3 +53,7 @@ export const getAreaListApi = (params: any) => http.get("/destina/side",params);
 
 //右侧侧导航
 export const getCityListApi = (params: any) => http.get("/destina/destinalist", params);
+// 获取个人中心的数据接口
+export const getpersondataApi: any = (params:PersonParamsType) =>{
+  return http.post("/api/person",params);
+}

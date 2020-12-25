@@ -47,6 +47,7 @@ const routes = [
   {
     path: "/reg",
     component: () => import("../components/Reg.vue")
+    
   },
   //这个是点击登录的时候跳转的页面，但是底下还是有底部导航的，所以是二级路由
   {
