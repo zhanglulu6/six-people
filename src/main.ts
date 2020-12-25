@@ -4,10 +4,12 @@ import './index.css'
 import "amfe-flexible"
 import 'vant/lib/index.css'
 import "./assets/css/style.stylus" 
+import 'default-passive-events'
 import router from "./router/index"
 import { store, key } from "./store/index"
-import { Tabbar, TabbarItem, Swipe, SwipeItem, Field, Icon,Cell, CellGroup, Button, NavBar,Form ,CountDown } from 'vant'
+import { Tabbar, TabbarItem, Swipe, SwipeItem, Button, NavBar, Calendar, Cell, CellGroup, ActionSheet, DatetimePicker, Picker, Field, Icon, Lazyload, Empty, TreeSelect, Form ,CountDown,NumberKeyboard } from 'vant'
 
+// Dialog({ message: '提示' });
 createApp(App)
   .use(router)
   .use(store, key)
@@ -15,12 +17,22 @@ createApp(App)
   .use(TabbarItem)
   .use(Swipe)
   .use(SwipeItem)
-  .use(Field)
-  .use(CellGroup)
-  .use(Icon)
   .use(Button)
   .use(NavBar)
+  .use(Calendar)
   .use(Cell)
+  .use(CellGroup)
+  .use(ActionSheet)
+  .use(DatetimePicker)
+  .use(Picker)
+  .use(Icon)
+  .use(Field)
+  .use(Lazyload as any, {
+    lazyComponent: true
+  })
+  .use(Empty)
+  .use(TreeSelect)
   .use(Form)
   .use(CountDown)
+  .use(NumberKeyboard)
   .mount('#app')

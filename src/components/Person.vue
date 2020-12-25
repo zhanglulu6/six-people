@@ -1,5 +1,5 @@
 <template style="height:2000px">
-  <div class="person" >
+  <div class="person">
         <!-- 我的导航栏 -->
         <van-nav-bar
           title="我的"
@@ -14,16 +14,18 @@
           <div class="person-icon" >
             <div style="width:100px">
               <img src="" alt="">
-              <span>6人游旅行网</span>
+              <span><img src="../assets/personimg/图层 1@2x.png" alt="" style="width:100px;height:35px"></span>
             </div>
-            <van-icon class="edit" name="edit" />
+            <div class="edit"><img src="../assets/personimg/编 辑@2x.png" alt="" style="width:30px;height:30px;"/></div>
             <!-- 关于用户信息 -->
             <div class="person-show" >
-              <div class="show-img"></div>
-              <p style="font-size:17px">蒋粤</p>
+              <div class="show-img">
+                <img src="../assets/personimg/图层 11@2x.png" alt="" style="width:50px;height:50px;" />
+              </div>
+              <p style="font-size:17px">{{ permsg.username }}</p>
               <div class="show-word">
-                <p>17793495806 甘肃 庆阳</p>
-                <p>会员卡号 v177 9349 5806</p>
+                <p>{{ permsg.phone }}&nbsp;&nbsp;{{ permsg.address }}</p>
+                <p>会员卡号 v{{ permsg.phone }}</p>
               </div>
             </div>
           </div>
@@ -32,21 +34,15 @@
         <!-- 定制行程 -->
           <div class="route" style="position:relative;">
             <!-- icon图标 -->
-            <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-line_hanglixiang"></use>
-            </svg>
+            <div class="icon"><img src="../assets/personimg/图层 5@2x.png" alt="" style="width:25px;height:25px;" /></div>
             <van-cell title="定制中的行程" is-link value="全部行程" @click="Journey()" />
             <!-- 我的旅游基金 -->
-            <svg class="icon" aria-hidden="true" style="position:absolute;top:26%;left:5%;z-index:999;font-size: 25px">
-            <use xlink:href="#icon-qiandai"></use>
-            </svg>
+            <div class="icon" style="position:absolute;top:25%;left:5%;z-index:999;font-size: 25px"><img src="../assets/personimg/图层 7@2x.png" alt="" style="width:25px;height:25px;" /></div>
             <van-cell title="我的旅游基金" is-link value="0元" style="margin-bottom:-s9px" class="travel"/>
             <!-- 成为会员 -->
             <div class="VIP">
               <div>
-                <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-youhuiquan"></use>
-                </svg>
+                <div class="icon"><img src="../assets/personimg/优惠券@2x.png" alt="" style="width:25px;height:25px;" /></div>
               </div>
               <div>
                 <p style="font-size:16px">成为会员即送60元旅游基金</p>
@@ -64,7 +60,6 @@
             </div>
             </div>
             <!-- 提交新的需求按钮 -->
-            
           </div>
         <!-- 我的旅游基金 -->
   </div>
@@ -72,15 +67,31 @@
 
 <script lang="ts">
 import { Toast } from 'vant';
+import { onBeforeRouteLeave } from 'vue-router';
 export default {
   data() {
-    return {};
+    return {
+    };
   },
-
-  components: {},
-
-  computed: {},
-
+  computed: {
+    //返回的数据
+    permsg() {
+      return this.$store.state.per.Perdata;
+    }
+  },
+  mounted(){
+    // beforeRouterEnter(to,from,next){
+      this.$store.dispatch("per/getPeractions",{
+          // email: this.email,
+          // phone: this.phone
+          //将存到local storage里面的数据取出来.而这个里面的数据是在登录的时候存到里面的
+          email: localStorage.getItem('email'),
+          phone: localStorage.getItem('phone')
+      });
+      // next();
+    // }; 
+    // console.log(this.$store.state.per.Perdata)
+  },
   methods: {
     //点击左边的箭头跳转到登录页
     onClickLeft() {
@@ -103,7 +114,6 @@ export default {
     background  #eee
   .person-infor
     // 图标
-    
   .person-icon
     width 350px
     height 200px
@@ -117,8 +127,8 @@ export default {
     span 
       font-size 15px
       float left
-      padding-top 15px
-      padding-left 15px 
+      padding-top 5px
+      padding-left 5px 
       position absolute
       top 10px
       left  10px
@@ -153,7 +163,7 @@ export default {
     //  position relative
      .icon
       position absolute
-      top 2%
+      top 1%
       left 4%
       z-index 999
     // 会员
@@ -171,7 +181,7 @@ export default {
       .icon
         position absolute
         top 27px
-        left 5%
+        left 2%
         z-index 999
         font-size 25px
       div:nth-child(1)

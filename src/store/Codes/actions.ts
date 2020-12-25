@@ -5,6 +5,7 @@ export default{
   async getCodeactions({commit}: any, payload:string){
     const res = await getcodedataApi(payload);
     // 接收到返回的信息
-      commit("getCodemutations", res.msg);
+    console.log(res);
+    commit("getCodemutations", res.msg);
   }
 }

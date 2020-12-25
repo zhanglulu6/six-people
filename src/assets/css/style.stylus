@@ -15,8 +15,8 @@
   border none
 .mine .login-main .van-icon
   position absolute
-  left -35px
-  top 65px
+  left -33px
+  top 60px
 .mine .login-main .van-cell 
   border-bottom 1px solid #ccc
   margin-bottom 15px
@@ -55,7 +55,12 @@
 // 定制中的行程字体
 .route .van-cell__title
   font-size: 15px
+.mine .van-button--large
+  margin-top: 50px
 
+
+
+// 毛苏玲
 // 首页底部
 .home .van-icon-add::before
   font-size 35px
@@ -63,3 +68,129 @@
 .home .van-tabbar-item:nth-child(3)
   position relative
   top -6px
+
+// 首页轮播图
+.home .custom-indicator[data-v-6bb4a9d5]
+  color white
+
+// 首页目的地
+.index .address ul[data-v-6bb4a9d5]
+  margin-bottom 10px
+
+// 首页策划
+.index .plan .plan-photo-ul li p[data-v-6bb4a9d5]
+  margin 0
+  text-align left
+  color black
+  font-size 0.45rem
+  margin-bottom 3px
+  font-weight 700
+
+// 提交需求页
+.demand .van-nav-bar__title
+  font-size 0.6rem
+  font-weight 700
+
+.demand .van-icon-arrow-left::before
+  font-size 0.6rem
+  color black
+
+.demand .van-cell__title
+  text-align left
+  font-size 16px
+
+.demand .van-button--normal
+  padding 0 0.6rem
+  border none
+
+.demand .van-picker__toolbar
+  background #27d461
+
+.demand .van-picker__cancel, .van-picker__confirm
+  font-size 18px
+  font-weight 500
+  color #fff
+
+.demand .text-first
+  position absolute
+  top 44px
+  padding 10px 76px
+  font-size 18px
+  background #ccc
+
+.demand .text-first span
+  display inline-block
+  color black
+  font-weight 700
+
+// 选择目的地页头部
+.choose .van-icon-search::before
+  color black
+
+.choose .van-icon-arrow-left::before
+  color black
+  font-size 20px
+
+.choose .van-nav-bar__title
+  font-size 0.5rem
+
+.choose .van-nav-bar__content
+  background #f9f9f9
+
+// 全部的定制行程头部
+.precious .van-icon-search::before
+  color black
+
+.precious .van-icon-arrow-left::before
+  color black
+
+.precious .van-nav-bar__title
+  font-size 0.5rem
+
+
+// 提供需求完成之后跳转的页面的样式
+.journey
+  background #ccc
+  //左边箭头的样式
+  .van-nav-bar .van-icon
+    font-size  20px
+    color #000
+  //需求行程的图片和加号
+  .journey-main
+    width 100%
+    position relative
+    .journey-top
+      width 90%
+      border 1px solid #ccc
+      position absolute
+      top 44px
+      left 50%
+      transform translateX(-50%)
+      .journey-second
+        padding 20px 0 0 0
+        .custom-image
+          width 100%
+          height 80%
+          padding 0
+          img
+            width 100%
+            height 60%
+        p
+          margin-bottom 0
+        
+  //底部确定按钮
+  .confirm
+    position absolute
+    bottom 0
+    left 50%
+    transform translateX(-50%)
+    width 100%
+    height 50px
+    background #27d461
+    line-height 50px
+    color #fff
+    font-size 15px
+  .van-nav-bar__text
+    color #27d461
+  .van-nav-bar__title
+    font-size 17px
