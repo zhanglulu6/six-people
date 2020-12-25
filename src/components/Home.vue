@@ -10,6 +10,8 @@
       >
         {{ item.title }}
       </van-tabbar-item>
+      <img src="../assets/首页底部.png" class="home-img" @click="goToRemand" />
+      <span @click="goToRemand">提交需求</span>
     </van-tabbar>
   </div>
 </template>
@@ -37,8 +39,8 @@ export default defineComponent ({
           dot: false
         },
         {
-          icon: "add",
-          title: "提交需求",
+          // icon: "add",
+          // title: "提交需求",
           to: "/demand",
           dot: false
         },
@@ -61,9 +63,31 @@ export default defineComponent ({
       } as LoginParamsType
     };
   },
+  methods: {
+    goToRemand() {
+      return this.$router.push("/demand")
+    }
+  },
   setup() {
     const active = ref(0);
     return { active };
   },
 });
 </script>
+
+<style lang="stylus" scoped>
+.home img
+  width 35px
+  height 35px
+  position absolute
+  top -8px
+  left 45%
+  z-index 222222
+
+.home span
+  position absolute
+  top 29px
+  left 43%
+  font-size 0.32rem
+  color rgb(100, 101, 102)
+</style>

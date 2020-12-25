@@ -16,6 +16,8 @@
           <div class="custom-indicator">{{ current + 1 }}/3</div>
         </template>
       </van-swipe>
+      <!-- 轮播图里的放大镜 -->
+      <van-icon name="search" class="index-img" />
       <!-- 轮播图里的按钮 -->
       <van-button icon="plus" type="primary" to="demand" color="#58d18a" class="button-first">提交需求</van-button>
       <van-button icon="notes-o" type="primary" to="journey" color="#58d18a" class="button-second">我的行程方案</van-button>
@@ -46,13 +48,15 @@
     <div class="plan">
       <div class="plan-title">
         <span>深度策划</span>
-        <span class="plan-title-second">更多</span>
+        <span class="plan-title-second" @click="goToDeepPlay">更多</span>
       </div>
       <ul class="plan-photo-ul">
-        <li v-for="item in planList" :key="item.id" @click="addressPhotoClick">
+        <li v-for="item in planList" :key="item.id">
           <img :src="item.imgUrl" />
           <p>{{ item.title }}</p>
           <span>{{ item.content }}</span>
+          <van-icon name="location" color="#eee" class="deepplay-address" />
+          <span class="deepplay-span">{{ item.address }}</span>
         </li>
       </ul>
     </div>
@@ -61,7 +65,7 @@
     <div class="travel">
       <h4>旅游灵感</h4>
       <ul class="travel-top">
-        <li v-for="item in travelList" :key="item.id" @click="addressPhotoClick">
+        <li v-for="item in travelList" :key="item.id" @click="goToDetail(item.id)">
           <lazy-component class="reason-img">
             <img v-lazy="item.imgUrl" />
           </lazy-component>
@@ -72,20 +76,16 @@
         </li>
       </ul>
     </div>
-
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
 import { ref } from 'vue';
 import { Toast } from "vant";
+import { useRouter } from "vue-router";
 export default defineComponent ({
-  data() {
-    return {
-      // 1.bannerList: [],
-    };
-  },
+  // props: ["id"],
   setup() {
     const current = ref(0);
     const onChange = (index) => {
@@ -98,9 +98,16 @@ export default defineComponent ({
       forbidClick: true,
     });
 
+    // 跳转
+    // const router = useRouter();
+    // const goToDeepPlay = () => {
+    //   router.push("/deepplay");
+    // };
+
     return {
       current,
       onChange,
+      // goToDeepPlay
     };
   },
   // 1.轮播图接收用传统方式
@@ -156,20 +163,35 @@ export default defineComponent ({
 
     // 首页的旅游灵感
     this.$store.dispatch("getHomeTravelApi");
+
   },
   methods: {
     addressClick() {
       return this.$router.push("/address")
     },
-    addressPhotoClick() {
-      return this.$router.push("/detail")
+    // addressPhotoClick() {
+    //   return this.$router.push("/detail/2")
+    // },
+    goToDeepPlay() {
+      return this.$router.push("/deepplay")
+    },
+    goToDetail(id) {
+      return this.$router.push("/detail/" + id)
     }
   }
 })
 </script>
 
 <style lang="stylus" scoped>
-.index 
+.index
+  .index-img
+    position absolute
+    top 15px
+    left 15px
+    font-size 25px
+    color #fff
+    font-weight 700
+
   .button-first 
     position absolute
     bottom 25px
@@ -197,13 +219,13 @@ export default defineComponent ({
 
     .imgWord
       position absolute
-      top 48%
+      top 43%
       left 20px
       width 100%
       text-align left
 
       .imgtitle
-        font-size 20px
+        font-size 22px
       
 
       .imgWordWidth 
@@ -215,7 +237,7 @@ export default defineComponent ({
 
   .custom-indicator 
     position absolute
-    top 40%
+    top 35%
     left 20px
     font-size 20px
   
@@ -326,9 +348,23 @@ export default defineComponent ({
         flex 1
         position relative
 
+        .deepplay-address
+          position absolute
+          top 148.5px
+          left 10px
+          font-size 15px
+          height 15px
+
+        .deepplay-span
+          position absolute
+          top 145px
+          left 30px
+          color #eee
+
         img
           width 140px
           height 170px
+          // border 2px solid #eee
 
         span
           display inline-block
@@ -361,6 +397,9 @@ export default defineComponent ({
             width 100%
             height 100%
             border-radius 10px
+            // opacity 0.95
+            // background #ccc
+            // background rgba(0, 0, 0, 0.9)
 
         .top-first
           position absolute

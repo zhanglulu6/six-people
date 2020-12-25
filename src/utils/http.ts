@@ -2,7 +2,7 @@ import * as qs from "qs";
 // import NProgress from "nprogress";//这是进度条的功能可以不用已经注销掉了
 
 // 封装请求
-const prefix = "http://10.31.162.61:8888";
+const prefix = "http://42.192.151.14:3000";
 const http: any = {
   get(url:string, params:any) {
     // console.log(params);

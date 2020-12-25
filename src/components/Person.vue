@@ -73,14 +73,6 @@
 <script lang="ts">
 import { Toast } from 'vant';
 export default {
-  data() {
-    return {};
-  },
-
-  components: {},
-
-  computed: {},
-
   methods: {
     //点击左边的箭头跳转到登录页
     onClickLeft() {

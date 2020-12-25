@@ -5,7 +5,7 @@ export default {
   async getRegactions({commit}: any, payload:RegParamsType){
     // 这里的payload是前端从后端获取到的数据
     const res = await getregdataApi(payload);
-    console.log(res);
+    // console.log(res);
     commit("getRegmutations", res.msg);
   }
 }

@@ -7,6 +7,9 @@ import photo from "../store/photo"
 import plan from "../store/plan"
 import travel from "../store/travel"
 import reason from "../store/reason"
+import choose from "../store/choose"
+import deepplay from "../store/deepplay"
+import detail from "../store/detail"
 
 // 蒋粤
 import mine from '../store/mine'
@@ -33,6 +36,9 @@ export const store = createStore<any>({
     plan,
     travel,
     reason,
+    choose,
+    deepplay,
+    detail,
     // 蒋粤
     mine,
     reg,

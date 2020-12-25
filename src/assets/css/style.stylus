@@ -57,14 +57,6 @@
   font-size: 15px
 
 // 毛苏玲
-// 首页底部
-.home .van-icon-add::before
-  font-size 35px
-
-.home .van-tabbar-item:nth-child(3)
-  position relative
-  top -6px
-
 // 首页轮播图
 .home .custom-indicator[data-v-6bb4a9d5]
   color white
@@ -142,3 +134,28 @@
 
 .precious .van-nav-bar__title
   font-size 0.5rem
+
+// 每周推荐页(ok)
+.reason .van-nav-bar__title
+  color black
+  font-size 18px
+
+// 深度玩法页
+.deepplay .van-nav-bar__title
+  font-size 0.5rem
+
+.deepplay .van-icon-arrow-left::before
+  font-size 0.5rem
+  color black
+
+.deepplay .plan .plan-photo-ul li p[data-v-3695f58d]
+  margin 0
+  text-align left
+  color black
+  font-size 0.53rem
+  margin-top 10px
+  margin-bottom 10px
+  font-weight 700
+  margin-left 12px
+
+// 张璐璐

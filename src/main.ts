@@ -7,7 +7,7 @@ import "./assets/css/style.stylus"
 import 'default-passive-events'
 import router from "./router/index"
 import { store, key } from "./store/index"
-import { Tabbar, TabbarItem, Swipe, SwipeItem, Button, NavBar, Calendar, Cell, CellGroup, ActionSheet, DatetimePicker, Picker, Field, Icon, Lazyload, Empty, TreeSelect, Form ,CountDown } from 'vant'
+import { Tabbar, TabbarItem, Swipe, SwipeItem, Button, NavBar, Calendar, Cell, CellGroup, ActionSheet, DatetimePicker, Picker, Field, Icon, Lazyload, Empty, TreeSelect, Form ,CountDown, Loading, Sidebar, SidebarItem } from 'vant'
 
 // Dialog({ message: '提示' });
 createApp(App)
@@ -34,4 +34,7 @@ createApp(App)
   .use(TreeSelect)
   .use(Form)
   .use(CountDown)
+  .use(Loading)
+  .use(Sidebar)
+  .use(SidebarItem)
   .mount('#app')

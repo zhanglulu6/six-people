@@ -39,8 +39,9 @@ const routes = [
   },
   // 详情页
   {
-    path:"/detail",
-    component: () => import("../components/Detail.vue")
+    path:"/detail/:id",
+    component: () => import("../components/Detail.vue"),
+    props: true
   },
   // 注册页面
   {
@@ -71,6 +72,11 @@ const routes = [
   {
     path: "/chooseaddress",
     component: () => import("../components/ChooseAddress.vue")
+  },
+  // 深度玩法页
+  {
+    path: "/deepplay",
+    component: () => import("../components/DeepPlay.vue")
   }
 ];
 
