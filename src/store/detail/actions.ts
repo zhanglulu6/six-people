@@ -6,6 +6,6 @@ export default {
       id: payload.id
     });
     commit("changeDetailList", res.list);
-    console.log(res.list);
+    console.log(res);
   }
 };

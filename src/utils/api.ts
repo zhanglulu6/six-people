@@ -3,25 +3,18 @@ import http from "./http";
 // 毛苏玲接口
 // 首页的最受欢迎列表接口
 export const getHomeBannerApi = (params: any) => http.get("/home/swiper", params);
-
 // 首页目的地地址接口
 export const getHomeAddressApi = (params: any) => http.get("/destina/side", params);
-
 // 首页目的地图片接口
 export const getHomeAddressPhotoApi = (params: any) => http.get("/home/area", params);
-
 // 首页策划接口
 export const getHomePlanApi = (params: any) => http.get("/home/plan", params);
-
 // 首页旅游灵感的接口
 export const getHomeTravelApi = (params: any) => http.get("/home/travel", params);
-
 // 每日推荐页面的接口
 export const getReasonApi = (params: any) => http.get("/recom/recommend", params);
-
 // 深度玩法页面的接口
 export const getDeepPlayApi = (params: any) => http.get("/home/planmore", params);
-
 // 详情页的接口
 export const getDetailApi = (params: any) => http.get("/home/traveldetail", params);
 
@@ -37,12 +30,10 @@ import { LoginParamsType, RegParamsType, CodeParamsType, PersonParamsType } from
 export const getlogindataApi: any = (params:LoginParamsType) =>{
   return http.post("/api/login",params);
 }
-
 // 注册的数据请求接口
 export const getregdataApi: any = (params:RegParamsType) =>{
   return http.post("/api/checkcode",params);
 }
-
 // 获取验证码的接口
 export const getcodedataApi: any = (params:CodeParamsType) =>{
   return http.post("/api/getcode",params);
@@ -50,7 +41,6 @@ export const getcodedataApi: any = (params:CodeParamsType) =>{
 
 // 张璐璐
 export const getAreaListApi = (params: any) => http.get("/destina/side",params);
-
 //右侧侧导航
 export const getCityListApi = (params: any) => http.get("/destina/destinalist", params);
 // 获取个人中心的数据接口

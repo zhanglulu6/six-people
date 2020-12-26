@@ -412,11 +412,11 @@ export default defineComponent ({
 
           span
             display inline-block
-            margin-bottom 5px
+            padding-bottom 8px
             border-bottom 2px solid #fff
           
           h6
-            margin-top 0
+            margin-top 8px
             font-size 16px
             font-weight 400
     
