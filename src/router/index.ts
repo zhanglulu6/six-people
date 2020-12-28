@@ -64,6 +64,11 @@ const routes = [
     path: "/journey",
     component: () => import("../components/Journey.vue")
   },
+  //景点详情页
+  {
+    path: "/info",
+    component: () => import("../components/Info.vue")
+  },
   // 定制中的行程
   {
     path: "/precious",
