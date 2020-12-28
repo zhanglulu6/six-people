@@ -1,4 +1,8 @@
 //登录页全局样式
+.mine .login-title
+  border-bottom 1px solid #ccc
+  .van-nav-bar .van-icon
+    color #000
 .mine .login-main
   margin-left 55px
   margin-right 20px
@@ -28,8 +32,12 @@
   padding: 15px 70px
 .register .van-nav-bar .van-icon
   color #ccc
+.register .van-nav-bar__content
+  height  20px
 .reg-name .van-field__body,.reg-email .van-field__body,.reg-phone .van-field__body,.reg-address .van-field__body,.reg-code .van-field__body
-  margin-left -30px
+  margin-left -10px
+.register .van-nav-bar
+  margin-top 10px
 // 个人中心的全局样式
 
 .person .van-nav-bar .van-icon
@@ -54,12 +62,64 @@
 
 // 定制中的行程字体
 .route .van-cell__title
-  font-size: 15px
+  font-size 15px
 .mine .van-button--large
-  margin-top: 50px
-
-
-
+  margin-top 50px
+//我的旅游基金得页面得全局样式
+.travelfund
+  // 获取基金的头部
+  .van-nav-bar
+    border-bottom 1px solid #bbb
+    margin-top 10px
+  .van-nav-bar .van-icon
+    color  #bbb
+  .travellunbo
+    position relative
+    width 100%
+    .travelmoney
+      position absolute
+      top 24%
+      left 5%
+      font-size 15px
+  // 获取基金
+  .getfund
+    .van-tabs__line
+      background-color  #5CD053
+      border-bottom 1px solid #ccc
+      width 75px
+    .van-tab--active
+      color #5CD053
+    .van-tabs--line .van-tabs__wrap
+      border-bottom 1px solid #ccc
+    //如何使用和如何获取
+    .howuse, .howget
+      font-size 15px
+      width 92%
+      margin 0 auto
+      position relative
+      margin-top 20px
+      h3
+       margin-left -250px
+       color #000000
+       font-family PingFang-SC-Regular
+       font-size 14px
+       opacity  0.6
+       span 
+        position absolute
+        top 7px
+        left 3px
+        width 8px
+        height 8px
+        background #5CD053
+        display block
+        border-radius 50%
+      p
+       text-align left
+       color #828282
+       line-height 10px
+       opacity 0.7
+    .howuse
+      margin-top 40px
 // 毛苏玲
 // 首页底部
 .home .van-icon-add::before
@@ -149,23 +209,35 @@
 
 
 // 提供需求完成之后跳转的页面的样式
+
 .journey
-  background #ccc
+  // background #eee
+  // z-index: -9999
   //左边箭头的样式
+  .van-nav-bar
+    border-bottom 1px solid #ccc
+    // margin-bottom 20px
   .van-nav-bar .van-icon
     font-size  20px
     color #000
+
+
+
   //需求行程的图片和加号
   .journey-main
+    background #eee
     width 100%
     position relative
+    // 需求提交成功
     .journey-top
-      width 90%
-      border 1px solid #ccc
+      width 92%
+      border 15px solid #f7f7f7
       position absolute
-      top 44px
+      top 27%
       left 50%
       transform translateX(-50%)
+      box-shadow 1px 3px 2px #eee
+      padding-bottom: 10%
       .journey-second
         padding 20px 0 0 0
         .custom-image
@@ -176,20 +248,57 @@
             width 100%
             height 60%
         p
-          margin-bottom 0
-        
+          margin-bottom 15px
+          font-size 18px
+        .van-icon
+          width 65px
+          height 65px
+          margin-top 20px
+          font-size 65px
+          // border 1px solid #000
+          z-index 999
+  // 完善需求
+  .journey-mid
+    position absolute
+    top 35%
+    left 0
+    font-size 17px
+    background #f7f7f7
+    width 100%
+  // 酒店机票选择
+  .journey-end
+    width 92%
+    border 15px solid #f7f7f7
+    // box-shadow 1px 3px 2px #eee
+    position absolute
+    top 41.5%
+    left 0%
+    font-size 15px
+    border-bottom none
+    .textneed
+      padding-bottom 15px
+      border-bottom 74px solid #f7f7f7
+    .textneed .text
+      width 92%
+      padding-top 10px
+      padding-left 10px
+      font-size 15px
+      background #f7f7f7
+      // border-radius 10px solid red
+      border none
+      border 1px solid #ccc
   //底部确定按钮
   .confirm
-    position absolute
+    position fixed
     bottom 0
     left 50%
     transform translateX(-50%)
     width 100%
-    height 50px
+    height 60px
     background #27d461
     line-height 50px
     color #fff
-    font-size 15px
+    font-size 20px
   .van-nav-bar__text
     color #27d461
   .van-nav-bar__title

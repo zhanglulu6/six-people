@@ -38,7 +38,7 @@
             <van-cell title="定制中的行程" is-link value="全部行程" @click="Journey()" />
             <!-- 我的旅游基金 -->
             <div class="icon" style="position:absolute;top:25%;left:5%;z-index:999;font-size: 25px"><img src="../assets/personimg/图层 7@2x.png" alt="" style="width:25px;height:25px;" /></div>
-            <van-cell title="我的旅游基金" is-link value="0元" style="margin-bottom:-s9px" class="travel"/>
+            <van-cell title="我的旅游基金" is-link value="0元" style="margin-bottom:-9px;" class="travel" @click="TravelFund()"/>
             <!-- 成为会员 -->
             <div class="VIP">
               <div>
@@ -54,7 +54,7 @@
             </div>
             <!-- 更多领取记录 -->
             <div class="more">
-              <p style="padding:10px">更多领取记录</p>
+              <p style="padding:10px" @click="Moreget()">更多领取记录</p>
               <div class="commit">
               <van-button type="primary" size="large" @click="Demand()">提交新的需求</van-button>
             </div>
@@ -67,7 +67,7 @@
 
 <script lang="ts">
 import { Toast } from 'vant';
-import { onBeforeRouteLeave } from 'vue-router';
+// import { onBeforeRouteLeave } from 'vue-router';
 export default {
   data() {
     return {
@@ -104,6 +104,14 @@ export default {
     //在个人中心点击提交提交需求
     Demand(){
       this.$router.push("/demand");
+    },
+    //我的旅游基金
+    TravelFund(){
+      this.$router.push("/travelFund");
+    },
+    //更多领取记录
+    Moreget(){
+      this.$router.push("/travelFund");
     }
   }
 };

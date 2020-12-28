@@ -1,5 +1,6 @@
 // 适配的路由
 import { createRouter, createWebHashHistory } from "vue-router";
+// import component from '../shims-vue';
 
 const routes = [
   //重定向到home，不管怎么跳转都到home
@@ -67,6 +68,11 @@ const routes = [
   {
     path: "/precious",
     component: () => import("../components/Precious.vue")
+  },
+  //我的旅游基金
+  {
+    path: "/travelFund",
+    component: () => import("../components/TravelFund.vue")
   },
   // 选择目的地页
   {

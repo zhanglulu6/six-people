@@ -1,9 +1,15 @@
 <template>
   <div class="register">
     <!-- 注册表的头部 -->
-    <van-nav-bar
+    <!-- <van-nav-bar
       class="reg-nav"
       title="注册"
+    /> -->
+    <van-nav-bar
+      title="注册"
+      left-text=""
+      left-arrow
+      @click-left="onClickLeft"
     />
     <!-- 注册表 -->
     <van-form class="reg-form" >
@@ -12,11 +18,10 @@
         <!-- 用户名 -->
         <van-field
           v-model="username"
-          name="用户名"
           label="用户名"
+          
           placeholder="请输入用户名"
-          :name="pattern"
-          :rules="[{ required: true, message: '请填写用户名' }]"
+          :rules="[{pattern: /^[\u4E00-\u9FA5]+$/, message: '*用户名只能为中文' }]"
         />
       </div>
       <!-- 地址 -->
@@ -24,10 +29,9 @@
         <van-icon name="home-o" style="position:absolute; top:30%;;left:25px;z-index:999;font-size:30px"/>
         <van-field
           v-model="address"
-          name="地址"
           label="地址"
           placeholder="地址"
-          
+          :rules="[{ required:true, message: '*请填写省和市' }]"
         />
       </div>
       
@@ -36,10 +40,9 @@
         <van-icon name="records" style="position:absolute; top:30%;;left:25px;z-index:999;font-size:30px"/>
         <van-field
           v-model="phone"
-          name="手机号"
           label="手机号"
           placeholder="手机号"
-          :rules="[{ required: true, message: '请填写手机号' }]"
+          :rules="[{ pattern:/^1[3|4|5|7|8][0-9]{9}$/, message: '*请正确填写11位号码' }]"
         />
       </div>
 
@@ -48,10 +51,9 @@
         <van-icon name="envelop-o" style="position:absolute; top:33%;;left:25px;z-index:999;font-size:30px"/>
         <van-field
           v-model="email"
-          name="邮箱"
           label="邮箱"
           placeholder="请输入邮箱"
-          :rules="[{ required: true, message: '请填写邮箱' }]"
+          :rules="[{ pattern:/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/, message: '*请输入有效得邮箱' }]"
         />
       </div>
 
@@ -66,9 +68,9 @@
           placeholder="短信验证码"
         >
           <template #button>
-            <van-button size="small" type="primary" class="code-button" @click="sendcode()" :color="isfalse" >获取验证码</van-button>
+            <van-button size="small" type="primary" class="code-button" @click="sendcode()" :color="isfalse" >{{ getcode }}</van-button>
             <!-- <van-count-down :time="time" /> -->
-            <span style="font-size:14px;position: absolute;top:9px;right:-45px;" class="code-timer">{{ count }}</span>
+            <!-- <span style="font-size:14px;position: absolute;top:9px;right:-45px;" class="code-timer">{{ count }}</span> -->
           </template>
         </van-field>
       </div>
@@ -99,8 +101,9 @@ export default {
       show: true,
 	    count: '',
       timer: null,
-      pattern: /\d{6}/,
-    };
+      getcode:"获取验证码"
+      // pattern: /^[\u4E00-\u9FA5]+$/
+    }
   },
   computed: {
     // 响应式数据的变化
@@ -114,6 +117,10 @@ export default {
   },
 
   methods: {
+    onClickLeft() {
+      this.$router.push("/reason");
+      Toast('返回');
+    },
     // 发送来获取验证码
     sendcode(){
       this.$store.dispatch("codes/getCodeactions",{
@@ -122,27 +129,43 @@ export default {
        phone:this.phone
       });
       Toast("验证码已发送到邮箱，请注意查收!");
-
+      // 倒数秒数
+      //初始的时间从60开始
       const TIME_COUNT = 60;
-      if (!this.timer) {
-          this.count = TIME_COUNT;
-          this.show = false;
-          this.timer = setInterval(() => {
-            if (this.count > 0 && this.count <= TIME_COUNT) {
-              this.count -= 1;
-            } else {
-              this.show = true;
-              clearInterval(this.timer);
-              this.timer = null;
-              this.count = "";
-            }
-          }, 1500); 
-      }        
+      // if (!this.timer) {
+      //     this.count = TIME_COUNT;
+      //     this.show = false;
+      //     this.timer = setInterval(() => {
+      //       if (this.count > 0 && this.count <= TIME_COUNT) {
+      //         this.count -= 1;
+      //       } else {//定时器结束之后
+      //         this.show = true;
+      //         clearInterval(this.timer);
+      //         this.timer = null;
+      //         this.count = "";
+      //       }
+      //     }, 1000); 
+      // } 
+      // 标记法做个标记是正确的
+      this.done = true;
+      // 将初始的时间赋值给我需要的
+      this.count = TIME_COUNT;
+      // 使用定时器，将获取验证码替换成倒计时
+      const timer = setInterval(() => {
+        this.getcode = `${this.count}s后可再次发送`;
+        this.count --;
+        if(this.count == 0){
+          // 关闭定时器将内容又替换成发送验证码
+          clearInterval(timer);
+          this.getcode = "发送验证码";
+          // 标记是错误的情况
+          this.done = false;
+          this.count = 60;
+        }
+      },1000);       
     },
     //注册来跳转页面
     reg(){
-      // this.$router.push("/mine");
-      
       this.$store.dispatch("reg/getRegactions",{
         // 传入的参数
         username: this.username,
@@ -199,7 +222,7 @@ export default {
     position relative
     // 获取验证码的按钮
     .code-button
-      margin-right -10px
+      margin-right -50px
     //定时器
     .code-timer
       // margin-right 10px
