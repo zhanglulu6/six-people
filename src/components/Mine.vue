@@ -64,7 +64,7 @@ export default {
     return {
       email: '',
       phone: '',
-      istrue: "#d3d80c"
+      istrue: "#ddd"
     };
   },
   mounted(){
@@ -89,6 +89,7 @@ export default {
     },
     //登录的事件触发跳转到个人中心
     login() {
+      
       Toast.loading({
           message: '加载中...',
           forbidClick: true,
@@ -100,7 +101,7 @@ export default {
         phone: this.phone
       })
       if(this.msg === '登入成功'){
-        
+        this.istrue = "#d3d80c";
         localStorage.setItem('email', this.email);
         localStorage.setItem('phone', this.phone);
         // 登录成功进入个人中心

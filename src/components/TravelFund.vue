@@ -62,21 +62,27 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: ["value"],
-  data() {
-    return {
-      active: 2,
-      receiveaward:"已领取"
+<script lang="ts">
+import { ref, defineComponent } from 'vue';
+import { useRouter } from 'vue-router';
+
+export default defineComponent({
+  props: ['value'],
+  setup(){
+    const router = useRouter();
+    const active = ref(2);
+    const receiveaward = ref('已领取');
+    const onClickLeft = (): void => {
+      router.push("/person");
     }
-  },
-  methods: {
-    onClickLeft() {
-      this.$router.push("/person");
-    }
+    return { active, receiveaward, onClickLeft }
   }
-};
+  // methods: {
+  //   onClickLeft():void {
+  //     this.$router.push("/person");
+  //   }
+  // }
+});
 </script>
 
 <style lang="stylus" scoped>
@@ -117,8 +123,9 @@ export default {
     .VIP-get
       width 60px
       height 30px
-      background #fff
-      border 1px solid #27d461
+      background #eee
+      color #ccc
+      border 1px solid #eee
       float right
       margin 25px auto 
       line-height 30px

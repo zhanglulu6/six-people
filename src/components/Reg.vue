@@ -83,7 +83,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { Toast } from 'vant';
 export default {
   data() {
@@ -93,7 +93,7 @@ export default {
       email:"",
       address: "",
       code: "",
-      istrue: "#d3d80c",
+      istrue: "#ddd",
       // istrue: "true",
       isfalse:"#17c25c",
       // time:  60 * 1000,
@@ -152,6 +152,7 @@ export default {
     },
     //注册来跳转页面
     reg(){
+      
       this.$store.dispatch("reg/getRegactions",{
         // 传入的参数
         username: this.username,
@@ -163,6 +164,7 @@ export default {
       //msg就相当于是从获取数据结束之后返回的提示信息
       if(this.msg === '注册成功'){
         Toast('注册成功');
+        this.istrue = "#d3d80c";
         // 注册成功跳转登录页面然后再进入个人中心
         this.$router.push("./Mine");
       }else{

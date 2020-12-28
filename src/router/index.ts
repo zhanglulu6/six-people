@@ -72,8 +72,9 @@ const routes = [
   //我的旅游基金
   {
     path: "/travelFund/:value",
-    component: () => import("../components/TravelFund.vue"),
-    props:true
+    name: "travelFund",
+    props:true,
+    component: () => import("../components/TravelFund.vue")
   },
   // 选择目的地页
   {
