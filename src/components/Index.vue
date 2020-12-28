@@ -27,17 +27,17 @@
     <div class="address">
       <div class="address-title">
         <span>目的地</span>
-        <span class="address-title-second">更多</span>
+        <span class="address-title-second" @click="goToaddress">更多</span>
       </div>
       <ul class="address-text">
-        <li v-for="item in addressList" :key="item.index" @click="addressClick" class="address-first-li">{{ item }}</li>
+        <li v-for="item in addressList" :key="item.index" @click="goToaddress" class="address-first-li">{{ item }}</li>
       </ul>
     </div>
 
     <!-- 首页目的地图片 -->
     <div class="address-photo">
       <ul class="address-photo-ul">
-        <li v-for="item in addressPhotoList" :key="item.id" @click="addressPhotoClick">
+        <li v-for="item in addressPhotoList" :key="item.id" @click="goToAddressDetail">
           <img :src="item.imgUrl" />
           <span>{{ item.title }}</span>
         </li>
@@ -65,7 +65,7 @@
     <div class="travel">
       <h4>旅游灵感</h4>
       <ul class="travel-top">
-        <li v-for="item in travelList" :key="item.id" @click="goToDetail(item.id)">
+        <li v-for="item in travelList" :key="item.id" @click="goToTravelDetail(item.id)">
           <lazy-component class="reason-img">
             <img v-lazy="item.imgUrl" />
           </lazy-component>
@@ -80,16 +80,73 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { ref } from 'vue';
-import { Toast } from "vant";
+import { defineComponent, ref, computed } from 'vue';
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import { key } from "../store/index";
+import { Toast } from "vant";
 export default defineComponent ({
-  // props: ["id"],
   setup() {
+    // 轮播图指示器
     const current = ref(0);
     const onChange = (index) => {
       current.value = index;
+    };
+
+    // 获取轮播图
+    const store = useStore(key);
+    const getBannerListApi = () => {
+      store.dispatch("banner/getBannerListApi");
+    };
+    const bannerList = computed(() => {
+      return store.state.banner.bannerList;
+    });
+
+    // 目的地
+    const getHomeAddressApi = () => {
+      store.dispatch("address/getHomeAddressApi");
+    };
+    const addressList = computed(() => {
+      return store.state.address.addressList;
+    });
+
+    // 目的地图片
+    const getHomeAddressPhotoApi = () => {
+      store.dispatch("photo/getHomeAddressPhotoApi");
+    };
+    const addressPhotoList = computed(() => {
+      return store.state.photo.addressPhotoList;
+    });
+
+    // 策划
+    const getHomePlanApi = () => {
+      store.dispatch("plan/getHomePlanApi");
+    };
+    const planList = computed(() => {
+      return store.state.plan.planList;
+    });
+
+    // 旅游灵感
+    const getHomeTravelApi = () => {
+      store.dispatch("travel/getHomeTravelApi");
+    };
+    const travelList = computed(() => {
+      return store.state.travel.travelList;
+    });
+
+    // 跳转页面
+    const router = useRouter();
+    const goToDeepPlay = () => {
+      router.push("/deepplay");
+    };
+    const goToaddress = () => {
+      router.push("/address");
+    };
+    const goToTravelDetail = (id) => {
+      router.push("/traveldetail/" + id);
+    };
+    const goToAddressDetail = () => {
+      router.push("/addressdetail");
     };
 
     // 加载中
@@ -98,16 +155,23 @@ export default defineComponent ({
       forbidClick: true,
     });
 
-    // 跳转
-    // const router = useRouter();
-    // const goToDeepPlay = () => {
-    //   router.push("/deepplay");
-    // };
-
     return {
       current,
       onChange,
-      // goToDeepPlay
+      getBannerListApi,
+      bannerList,
+      getHomeAddressApi,
+      addressList,
+      getHomeAddressPhotoApi,
+      addressPhotoList,
+      getHomePlanApi,
+      planList,
+      getHomeTravelApi,
+      travelList,
+      goToaddress,
+      goToDeepPlay,
+      goToTravelDetail,
+      goToAddressDetail,
     };
   },
   // 1.轮播图接收用传统方式
@@ -124,60 +188,65 @@ export default defineComponent ({
   // },
   computed: {
     // 2.轮播图接收state数据用vuex
-    bannerList() {
-      return this.$store.state.banner.bannerList;
-    },
+    // bannerList() {
+    //   return this.$store.state.banner.bannerList;
+    // },
     // 目的地
-    addressList() {
-      return this.$store.state.address.addressList;
-    },
-    addressPhotoList() {
-      return this.$store.state.photo.addressPhotoList;
-    },
+    // addressList() {
+    //   return this.$store.state.address.addressList;
+    // },
+    // addressPhotoList() {
+    //   return this.$store.state.photo.addressPhotoList;
+    // },
     // 策划
-    planList() {
-      return this.$store.state.plan.planList;
-    },
+    // planList() {
+    //   return this.$store.state.plan.planList;
+    // },
     // 旅游灵感
-    travelList() {
-      return this.$store.state.travel.travelList;
-    }
+    // travelList() {
+    //   return this.$store.state.travel.travelList;
+    // }
   },
   mounted() {
     // 1.轮播图接收用传统方式
     // this.getBannerList();
     // 2.轮播图触发actions用vuex
-    this.$store.dispatch("getBannerListApi");
+    // this.$store.dispatch("getBannerListApi");
+    this.getBannerListApi();
     // setTimeout(() => {
     //   console.log(this.bannerList)
     // }, 2000)
 
     // 首页的目的地
-    this.$store.dispatch("getHomeAddressApi");
+    this.getHomeAddressApi();
+    // this.$store.dispatch("getHomeAddressApi");
 
     // 首页目的地图片
-    this.$store.dispatch("getHomeAddressPhotoApi");
+    this.getHomeAddressPhotoApi();
+    // this.$store.dispatch("getHomeAddressPhotoApi");
 
     // 首页的策划
-    this.$store.dispatch("getHomePlanApi");
+    this.getHomePlanApi();
+    // this.$store.dispatch("getHomePlanApi");
 
     // 首页的旅游灵感
-    this.$store.dispatch("getHomeTravelApi");
+    this.getHomeTravelApi();
+    // this.$store.dispatch("getHomeTravelApi");
 
   },
   methods: {
-    addressClick() {
-      return this.$router.push("/address")
-    },
+    // addressClick() {
+    //   return this.$router.push("/address")
+    // },
     // addressPhotoClick() {
     //   return this.$router.push("/detail/2")
     // },
-    goToDeepPlay() {
-      return this.$router.push("/deepplay")
-    },
-    goToDetail(id) {
-      return this.$router.push("/detail/" + id)
-    }
+    // goToDeepPlay() {
+    //   return this.$router.push("/deepplay")
+    // },
+    // goToDetail(id) {
+    //   return this.$router.push("/detail/" + id)
+    // }
   }
 })
 </script>

@@ -38,11 +38,15 @@ const routes = [
       }
     ]
   },
-  // 详情页
+  // 旅游灵感详情页
   {
-    path:"/detail/:id",
-    component: () => import("../components/Detail.vue"),
+    path:"/traveldetail/:id",
+    component: () => import("../components/TravelDetail.vue"),
     props: true
+  },
+  {
+    path: "/addressdetail",
+    component: () => import("../components/AddressDetail.vue")
   },
   // 注册页面
   {
@@ -95,7 +99,14 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition):any {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
+  },
 });
 
 // 这个是最终导出的路由
