@@ -6,7 +6,9 @@
     <div class="login-main" >
       <van-cell-group>
        
-        <div class="van-icon" style="position:absolute;left:-32px;top:3px;"><img src="../assets/loginimg/图层 1@3x.png" alt="" style="width:25px;height:35px;"/></div>
+        <div class="van-icon" style="position:absolute;left:-32px;top:3px;">
+          <img src="../assets/loginimg/图层 1@3x.png" alt="" style="width:25px;height:35px;"/>
+        </div>
         <van-field
           :required="false"
           v-model="phone"
