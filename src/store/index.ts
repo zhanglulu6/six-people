@@ -9,7 +9,7 @@ import travel from "../store/travel"
 import reason from "../store/reason"
 import choose from "../store/choose"
 import deepplay from "../store/deepplay"
-import detail from "../store/detail"
+import traveldetail from "../store/traveldetail"
 
 // 蒋粤
 import mine from '../store/mine';
@@ -38,7 +38,7 @@ export const store = createStore<any>({
     reason,
     choose,
     deepplay,
-    detail,
+    traveldetail,
     // 蒋粤
     mine,
     reg,

@@ -104,19 +104,68 @@
   margin-left 12px
 
 // 详情页的头部
-.detail .van-icon-share-o::before
+.travel-detail .van-icon-share-o::before
   font-size 0.5rem
   color black
 
-.detail .van-icon-arrow-left::before
+.travel-detail .van-icon-arrow-left::before
   font-size 0.5rem
   color black
 
-.detail  .detail-top li .top-first span[data-v-b998bf44]
-  font-size 30px
+.travel-detail  .detail-top li .top-first span[data-v-b998bf44]
+  font-size 35px
+  font-weight 500
 
-.detail-top li .top-first h6[data-v-b998bf44]
-  font-size 16px
+.travel-detail .detail-top li .top-first h6[data-v-b998bf44]
+  font-size 22px
+
+.travel-detail .detail .van-nav-bar__title
+  font-size 0.5rem
+
+.travel-detail .van-button--normal
+  font-size 0.5rem
+
+// 目的地的详情页
+.address-detail .detail-top-first .van-icon-arrow-left::before
+  color #fff
+
+.address-detail .detail-top-first .van-icon-share-o::before
+  color #fff
+
+.address-detail .detail-top-first11 .van-icon-arrow-left::before
+  color black
+
+.address-detail .detail-top-first11 .van-icon-share-o::before
+  color black
+
+.address-detail .van-cell
+  text-align left
+
+.address-detail .detail-seven .van-cell__title
+  font-size 23px
+  color black
+  font-weight 600
+
+.address-detail .detail-seven .van-cell
+  padding 20px 20px
+
+.address-detail .detail-seven
+  margin-bottom 10px
+
+.address-detail .van-collapse-item__content
+  margin-top 10px
+
+.address-detail .van-icon-arrow::before
+  margin-top 35px
+
+.address-detail .van-icon-send-gift::before
+  padding-top 20px
+
+.address-detail .van-tabbar-item
+  margin-left -650px
+
+.address-detail .address-detail .detail-nine p[data-v-4bd98430]
+  font-size 12px
 
 // 蒋粤
 //登录页全局样式
