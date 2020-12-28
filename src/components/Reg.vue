@@ -132,20 +132,6 @@ export default {
       // 倒数秒数
       //初始的时间从60开始
       const TIME_COUNT = 60;
-      // if (!this.timer) {
-      //     this.count = TIME_COUNT;
-      //     this.show = false;
-      //     this.timer = setInterval(() => {
-      //       if (this.count > 0 && this.count <= TIME_COUNT) {
-      //         this.count -= 1;
-      //       } else {//定时器结束之后
-      //         this.show = true;
-      //         clearInterval(this.timer);
-      //         this.timer = null;
-      //         this.count = "";
-      //       }
-      //     }, 1000); 
-      // } 
       // 标记法做个标记是正确的
       this.done = true;
       // 将初始的时间赋值给我需要的

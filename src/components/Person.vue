@@ -38,7 +38,7 @@
             <van-cell title="定制中的行程" is-link value="全部行程" @click="Journey()" />
             <!-- 我的旅游基金 -->
             <div class="icon" style="position:absolute;top:25%;left:5%;z-index:999;font-size: 25px"><img src="../assets/personimg/图层 7@2x.png" alt="" style="width:25px;height:25px;" /></div>
-            <van-cell title="我的旅游基金" is-link value="0元" style="margin-bottom:-9px;" class="travel" @click="TravelFund()"/>
+            <van-cell title="我的旅游基金" is-link :value="value + '元'" style="margin-bottom:-9px;" class="travel" @click="TravelFund()"/>
             <!-- 成为会员 -->
             <div class="VIP">
               <div>
@@ -49,7 +49,7 @@
                 <p style="font-size:12px;float:left;color:#bbb;margin-top:-7px">仅限初次注册会员领取</p>
               </div>
               <div>
-                <div class="VIP-get">领取</div>
+                <div class="VIP-get" @click="received()" :color="istrue">{{ receiveaward }}</div>
               </div>
             </div>
             <!-- 更多领取记录 -->
@@ -71,6 +71,9 @@ import { Toast } from 'vant';
 export default {
   data() {
     return {
+      receiveaward:"领取",
+      value:0,
+      istrue:"#d3d80c"
     };
   },
   computed: {
@@ -99,7 +102,7 @@ export default {
     },
     //点击定制行程进入定制行程(完善的需求)
     Journey(){
-      this.$router.push("/journey");
+      this.$router.push("/precious");
     },
     //在个人中心点击提交提交需求
     Demand(){
@@ -107,11 +110,16 @@ export default {
     },
     //我的旅游基金
     TravelFund(){
-      this.$router.push("/travelFund");
+      this.$router.push("/travelFund/" + this.value);
+    },
+    // 已领取的事件
+    received(){
+      this.receiveaward = "已领取";
+      this.value = 60;
     },
     //更多领取记录
     Moreget(){
-      this.$router.push("/travelFund");
+      this.$router.push("/travelFund/" + this.value);
     }
   }
 };
@@ -193,7 +201,7 @@ export default {
         z-index 999
         font-size 25px
       div:nth-child(1)
-        width 50px
+        width 45px
         height 45px
         justify-content space-around
         align-items center
@@ -215,8 +223,9 @@ export default {
           background #fff
           border 1px solid #27d461
           float right
-          margin 15px auto 
+          margin 15px -15px
           line-height 30px
+         
     .more
       font-size 14px
       color #27d461

@@ -10,7 +10,7 @@
     <div class="travellunbo">
       <div class="travelmoney">
         <p style="color:#fff;opacity:0.5;font-size:14px;">我的旅游基金总计</p>
-        <p style="text-align:left;color:#fff;opacity:0.5;"><span style="font-size:24px;">0</span>元</p>
+        <p style="text-align:left;color:#fff;opacity:0.5;"><span style="font-size:24px;">{{ value }}</span>元</p>
       </div>
       <img src="../assets/图层 2_slices/图层 2@3x.png" alt="" style="width:100%;height:190px"/>
     </div>
@@ -49,11 +49,11 @@
                 <div class="icon"><img src="../assets/personimg/优惠券@2x.png" alt="" style="width:25px;height:25px;" /></div>
               </div>
               <div>
-                <p style="font-size:16px">成为会员即送0元旅游基金</p>
+                <p style="font-size:16px">成为会员即送{{ value }}元旅游基金</p>
                 <p style="font-size:12px;float:left;color:#bbb;margin-top:-7px">仅限初次注册会员领取</p>
               </div>
               <div>
-                <div class="VIP-get">领取</div>
+                <div class="VIP-get" >{{ receiveaward }}</div>
               </div>
           </div>
         </van-tab>
@@ -64,14 +64,16 @@
 
 <script>
 export default {
+  props: ["value"],
   data() {
     return {
-      active: 2
+      active: 2,
+      receiveaward:"已领取"
     }
   },
   methods: {
     onClickLeft() {
-      this.$router.push("/person")
+      this.$router.push("/person");
     }
   }
 };
