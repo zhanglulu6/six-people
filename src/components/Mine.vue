@@ -1,12 +1,25 @@
 <template>
 <!-- 点开我的页面进入登录页面 -->
   <div class="mine" >
-    <p>手机号登录</p>
-    <p></p>
+    <!-- <p>手机号登录</p> -->
+    <div class="login-title">
+      <van-nav-bar
+        title="手机号登录"
+        left-text=""
+        left-arrow
+        @click-left="onClickLeft"
+      />
+    </div>
     <div class="login-main" >
       <van-cell-group>
+<<<<<<< HEAD
        
+        <div class="van-icon" style="position:absolute;left:-32px;top:3px;">
+          <img src="../assets/loginimg/图层 1@3x.png" alt="" style="width:25px;height:35px;"/>
+        </div>
+=======
         <div class="van-icon" style="position:absolute;left:-32px;top:3px;"><img src="../assets/loginimg/图层 1@3x.png" alt="" style="width:25px;height:35px;"/></div>
+>>>>>>> jiangyue
         <van-field
           :required="false"
           v-model="phone"
@@ -71,6 +84,11 @@ export default {
     }
   },
   methods: {
+    // 点击左键跳转到上一个页面
+    onClickLeft() {
+      this.$router.push("/reason");
+      // Toast('返回');
+    },
     // 没有注册去注册
     goreg(){
       this.$router.push("/reg");
@@ -112,6 +130,10 @@ export default {
 // 我的页面
 .mine 
   position relative
+  // .login-title
+  //   border-bottom 1px solid #ccc
+    // .van-nav-bar .van-icon
+    //   color #bbb
   p
     font-size 15px
     border-bottom: 1px solid #bbb;
