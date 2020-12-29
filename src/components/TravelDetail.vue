@@ -199,11 +199,13 @@ export default defineComponent({
           display: inline-block;
           padding-bottom: 8px;
           border-bottom: 2px solid #fff;
+          font-size: 30px;
+          font-weight: 500;
         }
 
         h6 {
           margin-top: 8px;
-          font-size: 16px;
+          font-size: 22px;
           font-weight: 400;
         }
       }
@@ -256,7 +258,7 @@ export default defineComponent({
 
       p {
         margin-top: 0;
-        font-size: 16px;
+        font-size: 0.45rem;
         text-align: left;
       }
 
@@ -268,6 +270,8 @@ export default defineComponent({
 
       h5 {
         text-align: left;
+        margin-bottom: 0;
+        margin-bottom: 15px;
       }
 
       .top-five {

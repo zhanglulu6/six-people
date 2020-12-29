@@ -303,13 +303,12 @@ export default defineComponent ({
         margin-bottom: 0
         font-size: 16px
       
-    
-
   .custom-indicator 
     position absolute
     top 35%
     left 20px
     font-size 20px
+    color white
   
   .address
     .address-title
@@ -331,6 +330,7 @@ export default defineComponent ({
       flex-wrap wrap
       justify-content center
       align-items center
+      margin-bottom 10px
 
       
       .address-first-li
@@ -417,6 +417,14 @@ export default defineComponent ({
         margin-right 10px
         flex 1
         position relative
+      
+        p
+          margin 0
+          text-align left
+          color black
+          font-size 0.45rem
+          margin-bottom 3px
+          font-weight 700
 
         .deepplay-address
           position absolute
@@ -467,9 +475,6 @@ export default defineComponent ({
             width 100%
             height 100%
             border-radius 10px
-            // opacity 0.95
-            // background #ccc
-            // background rgba(0, 0, 0, 0.9)
 
         .top-first
           position absolute
@@ -484,6 +489,7 @@ export default defineComponent ({
             display inline-block
             padding-bottom 8px
             border-bottom 2px solid #fff
+            font-size 33px
           
           h6
             margin-top 8px

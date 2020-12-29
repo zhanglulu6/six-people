@@ -105,6 +105,16 @@ export default defineComponent ({
         position relative
         margin-bottom 30px
 
+        p
+          margin 0
+          text-align left
+          color black
+          font-size 0.53rem
+          margin-top 10px
+          margin-bottom 10px
+          font-weight 700
+          margin-left 12px
+
         img
           width 140px
           height 170px
