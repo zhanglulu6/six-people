@@ -17,7 +17,7 @@
   <div class="recommend">
     <h3>顾问推荐行程</h3>
     <div v-for="item in bottom" :key="item.id" class="line"> 
-       <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3260240298,2739383164&fm=26&gp=0.jpg" alt="">
+       <img :src="item.imgUrl" alt="">
        <p class="p1">{{ item.content}}</p>
        <p class="p2">{{ item.address}}</p> 
     </div> 
