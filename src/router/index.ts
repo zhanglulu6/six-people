@@ -44,9 +44,16 @@ const routes = [
     component: () => import("../components/TravelDetail.vue"),
     props: true
   },
+  // 目的地详情页
   {
     path: "/addressdetail",
     component: () => import("../components/AddressDetail.vue")
+  },
+  // 目的地咨询页
+  {
+    path: "/ask/:id",
+    component: () => import("../components/Ask.vue"),
+    props:true
   },
   // 注册页面
   {
