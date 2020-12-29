@@ -81,28 +81,45 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent,ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import photo from '../store/photo/index';
 export default defineComponent ({
-  data(){
-    return{
-       checked: false
-    }
+  setup(){
+    const router = useRouter();
+    const checked = ref(false);
+
+
+    const onClickLeft = ():void =>{
+      router.push("/index");
+    };
+    const onClickRight = ():void =>{
+      router.push("/precious");
+    };
+    const querenClick = ():void =>{
+      router.push("/precious");
+    };
+    return {checked,onClickLeft,onClickRight,querenClick}
   },
-  methods: {
-    //左边点击进入首页
-    onClickLeft() {
-      return this.$router.push("/index");
-    },
-    // 点击右边直接进入定制中的行程
-    onClickRight() {
-      return this.$router.push("/precious");
-    },
-    querenClick() {
-      return this.$router.push("/precious");
-    }
-  }
-})
+  // data(){
+  //   return{
+  //      checked: false
+  //   }
+  // },
+  // methods: {
+  //   //左边点击进入首页
+  //   onClickLeft() {
+  //     return this.$router.push("/index");
+  //   },
+  //   // 点击右边直接进入定制中的行程
+  //   onClickRight() {
+  //     return this.$router.push("/precious");
+  //   },
+  //   querenClick() {
+  //     return this.$router.push("/precious");
+  //   }
+  // }
+});
 </script>
 
 <style lang="stylus" scoped>

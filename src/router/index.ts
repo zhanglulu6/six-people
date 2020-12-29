@@ -89,8 +89,9 @@ const routes = [
   //我的旅游基金
   {
     path: "/travelFund/:value",
-    component: () => import("../components/TravelFund.vue"),
-    props:true
+    name: "travelFund",
+    props:true,
+    component: () => import("../components/TravelFund.vue")
   },
   // 选择目的地页
   {
@@ -101,6 +102,11 @@ const routes = [
   {
     path: "/deepplay",
     component: () => import("../components/DeepPlay.vue")
+  // 我的资料页面
+  },
+  {
+    path: "/myprofile",
+    component: () => import("../components/MyProfile.vue")
   }
 ];
 

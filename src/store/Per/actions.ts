@@ -6,7 +6,7 @@ export default{
   async getPeractions({commit}: any, payload:PersonParamsType){
     // 这里的payload是前端从后端获取到的数据
     const res = await getpersondataApi(payload);
-    console.log(res);
+    // console.log(res);
     // res.list的数据是返回给前端所需要的数据
     commit("getPermutations", res.list);
   }

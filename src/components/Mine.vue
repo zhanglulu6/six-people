@@ -12,7 +12,7 @@
     </div>
     <div class="login-main" >
       <van-cell-group>
-        <div class="van-icon" style="position:absolute;left:-32px;top:3px;"><img src="../assets/loginimg/图层 1@3x.png" alt="" style="width:25px;height:35px;"/></div>
+        <div class="van-icon" style="position:absolute;left:-32px;top:3px;"><img src="../assets/loginimg/phone.png" alt="" style="width:25px;height:35px;"/></div>
         <van-field
           :required="false"
           v-model="phone"
@@ -20,7 +20,7 @@
           placeholder="请输入手机号"
         />
         
-        <div class="van-icon"><img src="../assets/loginimg/图层 2@3x.png" alt="" style="width:30px;height:35px;" /></div>
+        <div class="van-icon"><img src="../assets/loginimg/touxiang.png" alt="" style="width:30px;height:35px;" /></div>
         <van-field
           :required="false"
           v-model="email"
@@ -65,7 +65,7 @@ export default defineComponent ({
     return {
       email: '',
       phone: '',
-      istrue: "#d3d80c"
+      istrue: "#ddd"
     };
   },
   mounted(){
@@ -90,6 +90,7 @@ export default defineComponent ({
     },
     //登录的事件触发跳转到个人中心
     login() {
+      
       Toast.loading({
           message: '加载中...',
           forbidClick: true,
@@ -101,7 +102,7 @@ export default defineComponent ({
         phone: this.phone
       })
       if(this.msg === '登入成功'){
-        
+        this.istrue = "#d3d80c";
         localStorage.setItem('email', this.email);
         localStorage.setItem('phone', this.phone);
         // 登录成功进入个人中心

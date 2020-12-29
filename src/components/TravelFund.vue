@@ -12,7 +12,7 @@
         <p style="color:#fff;opacity:0.5;font-size:14px;">我的旅游基金总计</p>
         <p style="text-align:left;color:#fff;opacity:0.5;"><span style="font-size:24px;">{{ value }}</span>元</p>
       </div>
-      <img src="../assets/图层 2_slices/图层 2@3x.png" alt="" style="width:100%;height:190px"/>
+      <img src="../assets/reqiqiu/reqi.png" alt="" style="width:100%;height:190px"/>
     </div>
     <!-- 旅游基金的获取的切换 -->
     <div class="getfund">
@@ -46,7 +46,7 @@
         <van-tab title="领取记录">
           <div class="VIP">
               <div>
-                <div class="icon"><img src="../assets/personimg/优惠券@2x.png" alt="" style="width:25px;height:25px;" /></div>
+                <div class="icon"><img src="../assets/personimg/quan.png" alt="" style="width:25px;height:25px;" /></div>
               </div>
               <div>
                 <p style="font-size:16px">成为会员即送{{ value }}元旅游基金</p>
@@ -63,20 +63,25 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent ({
-  props: ["value"],
-  data() {
-    return {
-      active: 2,
-      receiveaward:"已领取"
+import { ref, defineComponent } from 'vue';
+import { useRouter } from 'vue-router';
+
+export default defineComponent({
+  props: ['value'],
+  setup(){
+    const router = useRouter();
+    const active = ref(2);
+    const receiveaward = ref('已领取');
+    const onClickLeft = (): void => {
+      router.push("/person");
     }
-  },
-  methods: {
-    onClickLeft() {
-      this.$router.push("/person");
-    }
+    return { active, receiveaward, onClickLeft }
   }
+  // methods: {
+  //   onClickLeft():void {
+  //     this.$router.push("/person");
+  //   }
+  // }
 });
 </script>
 
@@ -118,8 +123,9 @@ export default defineComponent ({
     .VIP-get
       width 60px
       height 30px
-      background #fff
-      border 1px solid #27d461
+      background #eee
+      color #ccc
+      border 1px solid #eee
       float right
       margin 25px auto 
       line-height 30px
