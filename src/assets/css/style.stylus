@@ -1,23 +1,23 @@
 // 毛苏玲
 // 首页轮播图
-.home .custom-indicator[data-v-6bb4a9d5]
-  color white
+// .home .custom-indicator[data-v-6bb4a9d5]
+//   color white
 
 // 首页目的地
-.index .address ul[data-v-6bb4a9d5]
-  margin-bottom 10px
+// .index .address ul[data-v-6bb4a9d5]
+//   margin-bottom 10px
 
 // 首页策划
-.index .plan .plan-photo-ul li p[data-v-6bb4a9d5]
-  margin 0
-  text-align left
-  color black
-  font-size 0.45rem
-  margin-bottom 3px
-  font-weight 700
+// .index .plan .plan-photo-ul li p[data-v-6bb4a9d5]
+//   margin 0
+//   text-align left
+//   color black
+//   font-size 0.45rem
+//   margin-bottom 3px
+//   font-weight 700
 
-.index .travel .travel-top li .top-first span[data-v-6bb4a9d5]
-  font-size 33px
+// .index .travel .travel-top li .top-first span[data-v-6bb4a9d5]
+//   font-size 33px
 
 // 提交需求页
 .demand .van-nav-bar__title
@@ -102,15 +102,15 @@
   font-size 0.5rem
   color black
 
-.deepplay .plan .plan-photo-ul li p[data-v-3695f58d]
-  margin 0
-  text-align left
-  color black
-  font-size 0.53rem
-  margin-top 10px
-  margin-bottom 10px
-  font-weight 700
-  margin-left 12px
+// .deepplay .plan .plan-photo-ul li p[data-v-3695f58d]
+//   margin 0
+//   text-align left
+//   color black
+//   font-size 0.53rem
+//   margin-top 10px
+//   margin-bottom 10px
+//   font-weight 700
+//   margin-left 12px
 
 // 详情页的头部
 .travel-detail .van-icon-share-o::before
@@ -121,15 +121,15 @@
   font-size 0.5rem
   color black
 
-.travel-detail .detail-main .detail-main-third p[data-v-7dca5758]
-  font-size 0.45rem!@important
+// .travel-detail .detail-main .detail-main-third p[data-v-7dca5758]
+//   font-size 0.45rem!@important
 
-.travel-detail  .detail-top li .top-first span[data-v-b998bf44]
-  font-size 30px
-  font-weight 500
+// .travel-detail  .detail-top li .top-first span[data-v-b998bf44]
+//   font-size 30px
+//   font-weight 500
 
-.travel-detail .detail-top li .top-first h6[data-v-b998bf44]
-  font-size 22px
+// .travel-detail .detail-top li .top-first h6[data-v-b998bf44]
+//   font-size 22px
 
 .travel-detail .detail .van-nav-bar__title
   font-size 0.5rem
@@ -176,8 +176,8 @@
 .address-detail .van-tabbar-item
   margin-left -650px
 
-.address-detail .address-detail .detail-nine p[data-v-4bd98430]
-  font-size 12px
+// .address-detail .address-detail .detail-nine p[data-v-4bd98430]
+//   font-size 12px
 
 // 目的地第一次点击页面
 .ask .detail-top-first11 .van-icon-arrow-left::before
