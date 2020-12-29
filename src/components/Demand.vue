@@ -12,7 +12,7 @@
 
     <!-- 需求页的图片 -->
     <img
-      src="../assets/提交需求页.png"
+      src="../assets/demand1.png"
       class="img-top"
     />
 
@@ -22,17 +22,19 @@
         <van-cell title="目的地" to="chooseaddress" :value="confirmCity==''?'请输入目的地':confirmCity" />
       </van-cell-group>
       <van-cell-group>
-        <van-cell title="出行日期" :value="date" @click="show = true" />
+        <van-cell title="出行日期" :value="date?date:'选填'" @click="show = true" />
       </van-cell-group>
       <van-cell-group>
         <van-cell title="人数" :value="str?str:'选填'" @click="showsecond = true" />
         <!-- <van-field label = "人数" :value = "value" @click="showsecond = true" /> -->
       </van-cell-group>
       <van-cell-group>
-        <van-cell title="联系人" value="姓名" />
+        <!-- <van-cell title="联系人" value="姓名" /> -->
+        <van-field v-model="value" label="姓名" placeholder="选填" />
       </van-cell-group>
       <van-cell-group>
-        <van-cell title="联系电话" value="电话" />
+        <!-- <van-cell title="联系电话" :value="phone1?phone1:'选填'" /> -->
+        <van-field v-model="value1" label="联系电话" placeholder="选填" />
       </van-cell-group>
       <van-button round type="info" color="#27d461" @click="goToJourney">免费获取旅行方案</van-button>
     </div>
@@ -56,7 +58,7 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { Toast } from "vant";
-import { useRouter } from "vue-router";
+import { useRouter, stringifyQuery } from "vue-router";
 import { useStore } from "vuex";
 import { key } from "./../store/index";
 export default defineComponent({
@@ -142,6 +144,7 @@ export default defineComponent({
     let str = ref("");
     const onConfirm = arr => {
       str.value = `成人${arr[0]},儿童${arr[1]}`;
+      localStorage.setItem("str", str.value);
     };
     const onSelect = (item) => {
       showsecond.value = false;
@@ -155,15 +158,21 @@ export default defineComponent({
     }
 
     // 日期
-    const date = ref("选填");
-    const show = ref(false);
-    const formatDate = date => `${date.getMonth() + 1}/${date.getDate()}`;
+    let date = ref("");
+    let show = ref(false);
+    const formatDate = date => `2020年${date.getMonth() + 1}月${date.getDate()}日`;
     const onConfirmFirst = date1 => {
       const [start, end] = date1;
       show.value = false;
-      date.value = `${formatDate(start)} - ${formatDate(end)}`;
+      // date.value = `${formatDate(start)} - ${formatDate(end)}`;
+      date.value = `${formatDate(start)}`;
+      localStorage.setItem("date", date.value);
     };
     
+    const value = ref("");
+    const value1 = ref("");
+    // let phone1 = localStorage.getItem("phone");
+
     const router = useRouter();
     const onClickLeft = () => {
       router.go(-1);
@@ -187,7 +196,10 @@ export default defineComponent({
       str,
       onClickLeft,
       onSelect,
-      goToJourney
+      goToJourney,
+      // phone1,
+      value,
+      value1,
     };
   }
 });

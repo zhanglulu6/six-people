@@ -62,8 +62,9 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+export default defineComponent ({
   props: ["value"],
   data() {
     return {
@@ -76,7 +77,7 @@ export default {
       this.$router.push("/person");
     }
   }
-};
+});
 </script>
 
 <style lang="stylus" scoped>

@@ -67,8 +67,9 @@
 
 <script lang="ts">
 import { Toast } from 'vant';
+import { defineComponent } from 'vue';
 // import { onBeforeRouteLeave } from 'vue-router';
-export default {
+export default defineComponent ({
   data() {
     return {
       receiveaward:"领取",
@@ -122,7 +123,7 @@ export default {
       this.$router.push("/travelFund/" + this.value);
     }
   }
-};
+});
 </script>
 <style lang="stylus" scoped>
 .person 

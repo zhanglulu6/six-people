@@ -49,32 +49,32 @@
         <p class="top">雨林、博物、传承</p>
         <p>寒假带孩子去西双版纳，呼吸热带雨林中的空气，和大象交朋友，与少数民族多元文化交流碰撞。</p>
         <p>西双版纳是联合国生物多样性保护圈的成员，境内植物种类占全国的1/6，动物种类占全国的1/4，带孩子探访遮天蔽日的热带雨林植物王国，上一堂身临其境的博物课。</p>
-        <img src="../assets/西双版纳1.jpg" />
+        <img src="../assets/xsbl1.jpg" />
         <h5>倾听大象絮语</h5>
         <p>孩子们将与小象一同漫步雨林，亲密接触。我们将会加入野象谷保育员的牧象之旅，陪着还未成年的小象在雨林中漫步，一路上与小象同行，还可以在保育员的指导下给小象喂食、与它互动，留下珍贵的影像记忆。</p>
-        <img src="../assets/西双版纳2.jpg" />
+        <img src="../assets/xsbl2.jpg" />
         <p
           class="top-five"
         >野象谷森林公园就建立在亚洲象常去饮水的河谷里，在树与树之间架起6米高的空中观象长廊，又修建了穿越雨林的空中索道，既不影响亚洲象的生活，保障了彼此的安全，又给我们近距离观察野象的机会。</p>
-        <img src="../assets/西双版纳3.jpg" />
+        <img src="../assets/xsbl3.jpg" />
         <h5>感受雨林脉动</h5>
         <p>中科院热带植物园中生活着12000多种热带植物，是我国面积最大、物种最丰富的5A级植物园区。</p>
-        <img src="../assets/西双版纳4.jpg" />
+        <img src="../assets/xsbl4.jpg" />
         <p
           class="top-five"
         >孩子们将会跟着向导探索雨林，邂逅植物王国的月升日落。我们将在科普讲解员的带领下进入中科院西双版纳热带植物园的热带雨林徒步，讲解员会为我们翻开这本活着的动植物百科全书，路上邂逅的奇花异草都叫什么名字？藤蔓如何与寄主共生？一直在鸣叫的鸟长什么样子？</p>
-        <img src="../assets/西双版纳5.jpg" />
+        <img src="../assets/xsbl5.jpg" />
         <p
           class="top-five"
         >孩子们将会在雨林的开阔处野餐，大家一起就地取材准备“餐桌”，硕大的芭蕉叶层层叠叠就是桌子，碗筷皆由竹子和木头做成，呼吸着雨林中清新纯净的空气，耳中虫鸣鸟叫不绝，这样的一餐定会让孩子难以忘怀。</p>
         <p>孩子们也可以在晚间进入雨林探秘，夜晚的热带雨林较之白日更为奇幻，神奇生物纷纷苏醒，迎来另一番喧嚣与吵闹，蜗牛、蛞蝓、竹节虫、被风吹落的果实、月光下发出荧荧微光的蘑菇……跟着讲解员在丛林中缓步前进，了解雨林的夜晚。</p>
-        <img src="../assets/西双版纳6.jpg" />
+        <img src="../assets/xsbl6.jpg" />
         <h5>见证非遗传承</h5>
         <p>孩子们做客山林里的傣寨人家，和当地的手工匠人学习传统的非遗技艺。</p>
         <p>我们将在傣家手工艺匠人的指导下，体验慢轮制陶工艺，这种纯靠手工的制陶方式在当地也并不常见，当我们仅凭双手堆叠，在木头齿轮上逐渐盘好一件陶器并敲打均匀，成就感不言而喻。</p>
-        <img src="../assets/西双版纳7.jpg" />
+        <img src="../assets/xsbl7.jpg" />
         <p class="top-five">我们还将和傣族阿哥学跳象鼓舞，这些传统的技艺与舞蹈既是国家级的非遗项目，也是当地人沿袭千年的生活方式。</p>
-        <img src="../assets/西双版纳8.jpg" />
+        <img src="../assets/xsbl8.jpg" />
       </div>
     </div>
 
@@ -219,7 +219,7 @@ export default defineComponent({
   }
 
   .detail-main {
-    padding: 0 20px;
+    padding: 0 20px 50px 20px;
 
     .detail-main-first {
       margin-top: 100px;
@@ -235,7 +235,7 @@ export default defineComponent({
     .detail-main-second {
       p {
         margin: 0;
-        font-size: 18px;
+        font-size: 16px;
         color: black;
       }
     }
@@ -256,7 +256,7 @@ export default defineComponent({
 
       p {
         margin-top: 0;
-        font-size: 19px;
+        font-size: 16px;
         text-align: left;
       }
 

@@ -83,9 +83,10 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { Toast } from 'vant';
-export default {
+import { defineComponent } from 'vue';
+export default defineComponent ({
   data() {
     return {
       username: "",
@@ -173,7 +174,7 @@ export default {
       Toast('验证码已发送到你的手机上');
     }
   }
-};
+});
 
 </script>
 <style lang="stylus" scoped>

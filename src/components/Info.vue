@@ -8,7 +8,7 @@
        @click="go"
        />
     </van-sticky>
-    <van-icon name="arrow-left"/>
+    <van-icon name="arrow-left" @click="go" />
     <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
       <van-swipe-item>
         <img src="https://goss2.cfp.cn/creative/vcg/800/new/VCG41N895543848.jpg" alt="">
@@ -59,8 +59,9 @@
   <div style="height:150px"></div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+export default defineComponent ({
   // setup() {
   //   return {
   //     onClickLeft
@@ -83,7 +84,7 @@ export default {
       this.$router.go(-1)
     }
   }
-};
+});
 </script>
 <style lang="stylus" scoped>
 .van-icon 
