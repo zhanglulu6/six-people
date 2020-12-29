@@ -299,11 +299,9 @@ export default defineComponent ({
       
 
       .imgWordWidth 
-        margin-top: 0
-        margin-bottom: 0
-        font-size: 16px
-      
-    
+        margin-top 0
+        margin-bottom 0
+        font-size 16px    
 
   .custom-indicator 
     position absolute
@@ -489,6 +487,4 @@ export default defineComponent ({
             margin-top 8px
             font-size 16px
             font-weight 400
-    
-
 </style>
