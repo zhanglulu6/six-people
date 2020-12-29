@@ -14,13 +14,13 @@
           <div class="person-icon" >
             <div style="width:100px">
               <img src="" alt="">
-              <span><img src="../assets/personimg/图层 1@2x.png" alt="" style="width:100px;height:35px"></span>
+              <span><img src="../assets/personimg/logo.png" alt="" style="width:100px;height:35px"></span>
             </div>
-            <div class="edit" @click="MyProfile()"><img src="../assets/personimg/编 辑@2x.png" alt="" style="width:30px;height:30px;"/></div>
+            <div class="edit" @click="MyProfile()"><img src="../assets/personimg/edit.png" alt="" style="width:30px;height:30px;"/></div>
             <!-- 关于用户信息 -->
             <div class="person-show" >
               <div class="show-img">
-                <img src="../assets/personimg/图层 11@2x.png" alt="" style="width:50px;height:50px;" />
+                <img src="../assets/personimg/rexiang.png" alt="" style="width:50px;height:50px;" />
               </div>
               <p style="font-size:17px">{{ permsg.username }}</p>
               <div class="show-word">
@@ -34,15 +34,15 @@
         <!-- 定制行程 -->
           <div class="route" style="position:relative;">
             <!-- icon图标 -->
-            <div class="icon"><img src="../assets/personimg/图层 5@2x.png" alt="" style="width:25px;height:25px;" /></div>
+            <div class="icon"><img src="../assets/personimg/xiangzi.png" alt="" style="width:25px;height:25px;" /></div>
             <van-cell title="定制中的行程" is-link value="全部行程" @click="Journey()" />
             <!-- 我的旅游基金 -->
-            <div class="icon" style="position:absolute;top:25%;left:5%;z-index:999;font-size: 25px"><img src="../assets/personimg/图层 7@2x.png" alt="" style="width:25px;height:25px;" /></div>
+            <div class="icon" style="position:absolute;top:25%;left:5%;z-index:999;font-size: 25px"><img src="../assets/personimg/jijing.png" alt="" style="width:25px;height:25px;" /></div>
             <van-cell title="我的旅游基金" is-link :value="value + '元'" style="margin-bottom:0px;" class="travel" @click="TravelFund()"/>
             <!-- 成为会员 -->
             <div class="VIP">
               <div>
-                <div class="icon"><img src="../assets/personimg/优惠券@2x.png" alt="" style="width:25px;height:25px;" /></div>
+                <div class="icon"><img src="../assets/personimg/quan.png" alt="" style="width:25px;height:25px;" /></div>
               </div>
               <div>
                 <p style="font-size:16px">成为会员即送60元旅游基金</p>

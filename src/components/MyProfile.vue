@@ -39,7 +39,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { Toast } from 'vant';
 import router from '../router';
 import { useRouter } from 'vue-router';

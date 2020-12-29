@@ -9,19 +9,24 @@
   
 </body>
 <script>
-  for(var i =0;i<3;i++){
-    setTimeout(function(){
-      console.log(i);
-  // 3次3
-  // 每一次for循环的时候，settimeout都执行一次，但是里面的函数没有被执行，而是被放到了任务队列里面，等待执行，for循环了3次，就放了3次，当主线程执行完成后，才进入任务队列里面执行。
-    },1000)
-  }
+  // for(var i =0;i<3;i++){
+  //   setTimeout(function(){
+  //     console.log(i);
+  // // 3次3
+  // // 每一次for循环的时候，settimeout都执行一次，但是里面的函数没有被执行，而是被放到了任务队列里面，等待执行，for循环了3次，就放了3次，当主线程执行完成后，才进入任务队列里面执行。
+
+  // // setInterval是一直在打印一个数
+  //   },1000)
+  // }
 
   for(let i =0;i<3;i++){
     setTimeout(function(){
       console.log(i);
       //依次输出0,1,2
-      // 
+      // 因为for循环头部的let不仅将i绑定到for循环快中，事实上它将其重新绑定到循环体的每一次迭代中，确保上一次迭代结束的值重新被赋值。setTimeout里面的function()属于一个新的域，通过 var 定义的变量是无法传入到这个函数执行域中的，通过使用 let 来声明块变量，这时候变量就能作用于这个块，所以 function就能使用 i 这个变量了
+
+
+      // setInterval不断的打印三个数
     },1000)
   }
 </script>
