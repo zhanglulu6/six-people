@@ -10,10 +10,9 @@
     <!-- 输入任意文本 -->
     <div class="edit-context">
       <van-field 
-         
         label="姓名" 
+        v-model="text"
         placeholder="请输入修改的用户名"
-        :rules="[{pattern: /^[\u4E00-\u9FA5]+$/, message: '*用户名只能为中文' }]" 
       />
       <van-field  label="性别" />
       <div class="sexselect">
@@ -41,8 +40,8 @@
 
 <script lang="ts">
 import { Toast } from 'vant';
-import router from '../router';
-import { useRouter } from 'vue-router';
+// import router from '../router';
+// import { useRouter } from 'vue-router';
 export default {
   // setup(){
   //   const router = useRouter();
@@ -52,6 +51,7 @@ export default {
     return {
       tel: localStorage.getItem("phone"),
       email:"",
+      text:"",
       checkedone:false,
       checkedtwo:false,
       checkedthree:false,
