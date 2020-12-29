@@ -57,8 +57,9 @@ import { getlogindataApi } from "../utils/api";
 // import { Mine } from "../store/Mine";
 import { Toast } from 'vant';
 import { store } from '../store/index';
+import { defineComponent } from 'vue';
 // import MineModule from '../store/Mine/index';
-export default {
+export default defineComponent ({
   name: "Mine",
   data() {
     return {
@@ -117,7 +118,7 @@ export default {
       }
     }
   }
-};
+});
 </script>
 <style lang="stylus" scoped>
 // 我的页面

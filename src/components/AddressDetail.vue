@@ -6,7 +6,7 @@
         <van-icon class="icon1" name="arrow-left" @click="onClickLeft" />
         <van-icon class="icon2" name="share-o" @click="onClickRight" />
       </div>
-      <img src="../assets/北京1.png" class="img-first" />
+      <img src="../assets/beijing1.png" class="img-first" />
     </div>
 
     <!-- 头部变更 -->
@@ -77,7 +77,7 @@
       <div class="detail-five-title">
         <h1>特色景点</h1>
         <div class="img1">
-          <li v-for="item in detailBannerList" :key="item.title" @change="onChange(index)">
+          <li v-for="item in detailBannerList" :key="item.title" @change="onChange(index)" @click="goToInfo">
             <img :src="item.src" />
             <h6>{{ item.title }}</h6>
             <div class="custom-indicator"><span>{{ current + 1 }}</span>/3</div>
@@ -187,7 +187,7 @@
               <div>
                 <h2>天坛</h2>
                 <p>北京天坛位于北京市东城区，是明清两朝帝王祭天、祈谷和祈雨的场所。是现存中国古代规模最大、伦理等级最高的祭祀建筑群。1961年，天坛被中华人民共和国国务院公布为第一批全国重点文物保护单位之- -。1998年，“北京皇家祭坛一天坛”被列为世界文化遗产</p>
-                <img src="../assets/北京1.png" />
+                <img src="../assets/beijing1.png" />
               </div>
             </div>
             <div class="top11">
@@ -195,7 +195,7 @@
               <div>
                 <h2>中国国家博物馆</h2>
                 <p>中国国家博物馆位于北京市中心天安门广场东侧，东长安街南侧，与人民大会堂东西相对称，是历史与艺术并重，集收藏、展览、研究、考古、公共教育、文化交流于一-体的综合性博物馆。总建筑面积近20万平方米，藏品数量为100余万件，是世界，上单体建筑面积最大的博物馆。博物馆分为五层，共有48个展厅，是中华文物收藏量最丰富的博物馆之一。陈展体系由基本陈列、专题陈列、国际交流展和临时展览组成，涵盖了从古到今的各个阶段。</p>
-                <img src="../assets/北京2.png" />
+                <img src="../assets/beijing2.png" />
               </div>
             </div>
             <div class="top11">
@@ -203,7 +203,7 @@
               <div>
                 <h2>红剧场功夫秀</h2>
                 <p>千百年来，在中国辽阔的大地.上，造化神奇的嵩山、华山、武当山，演绎了无数个中国功夫的传奇。在红剧场您将要看到的就是这无数传奇中的一个。故事发生在山上- -座古老的寺院内。一个小和尚从懵懂无知的童年，通过练武、习禅，最终走入大智大勇、大彻大悟的人生境界。</p>
-                <img src="../assets/北京3.png" />
+                <img src="../assets/beijing3.png" />
               </div>
             </div>
           </div>
@@ -233,7 +233,7 @@
               <div>
                 <h2>天安门</h2>
                 <p>世界_上最大的广场之一，位于长安街南侧，天安门位于北京城的传统的中轴线上，由城台和城楼两部分组成，造型威严庄重，气势宏大，是中国古代城门中最杰出的代表作，中华人民共和国的象征。天安门被中华人民共和国:二院公布为第-批全国重点文物保护单位之-。</p>
-                <img src="../assets/北京4.png" />
+                <img src="../assets/beijing4.png" />
               </div>
             </div>
             <div class="top11">
@@ -241,7 +241,7 @@
               <div>
                 <h2>故宫</h2>
                 <p>故宫又名紫禁城，是中国乃至世界.上保存最完整，规模最大的木质结构古建筑群，被誉为“世界五大宫之首”。内廷以乾清宫、交泰殿、坤宁宫后三宫为中心，以及东西两侧的东六宫和西六宫，是封建帝王与后妃居住之所，也就是俗称的“三宫六院”。故宫内珍藏有大量珍贵文物，据统计有上百万件，占全国文物总数的六分之一。钟表馆每天11点和14点有钟表演示，不可错过。故宫需要从南到北参观，午门是唯一-的入口，出口是东华门和神武门。</p>
-                <img src="../assets/北京1.png" />
+                <img src="../assets/beijing1.png" />
               </div>
             </div>
             <div class="top11">
@@ -250,7 +250,7 @@
                 <h2>国子监</h2>
                 <p class="text1">北京国子监始建于元成宗大德十年( 1306年)，是中国元、明、清三代国家管理教育的最高行政机关和国家设立的最高学府。北京国子监坐落于安定门内国子监街上，与国子监一墙之隔的东侧是孔庙。</p>
                 <p class="text2">明朝时期行使双京制，在南京和北京分别都设有国子监，设在南京的国子监被称为“南监"或“南雍”，而设在北京的国子监则被称为“北监”或“北雍”。</p>
-                <img src="../assets/北京2.png" />
+                <img src="../assets/beijing2.png" />
               </div>
             </div>
           </div>
@@ -281,7 +281,7 @@
               <div>
                 <h2>颐和园</h2>
                 <p>颐和园坐落于北京西郊，是中国古典园林之首，1998年12月2日被列入《世界遗产名录》。由万寿山和昆明湖组成，全园以西山群峰为背景，建筑群与山湖形势融为一体，景色变幻无穷。全园分3个区域，分别为以仁寿殿为中心的政治活动区;以玉澜堂、乐寿堂为主体的帝后生活区;以万寿山和昆明湖组成的风景旅游区。</p>
-                <img src="../assets/北京3.png" />
+                <img src="../assets/beijing3.png" />
               </div>
             </div>
             <div class="top11">
@@ -289,7 +289,7 @@
               <div>
                 <h2>清华大学</h2>
                 <p>清华大学始建于1911年，中国著名高等学府，坐落于北京西北郊风景秀丽的清华园。曾经是皇家园林，园中的建筑大多中西合璧，亭台楼榭与湖水树林相映，环境优美。园内的主要景点有近春园、水木清华、大礼堂、清华学堂、二校门等。可以从西门进入后顺时针参观。近春园的荷塘，就是朱自清《荷塘月色》中所描写的荷塘。</p>
-                <img src="../assets/北京4.png" />
+                <img src="../assets/beijing4.png" />
               </div>
             </div>
             <div class="top11">
@@ -297,7 +297,7 @@
               <div>
                 <h2>北京大学</h2>
                 <p>初名京师大学堂，是中国近代第一-所国立综合性大学，被公认为是中国的最高学府之- -。是中国“新文化运动”与“五四运动”等运动的发祥地，也是多种政治思潮和社会理想在中国的传播地。校园环境风景如画，既有皇家园林的宏伟气度，又有江南山水的秀丽特色。校园北与圆明园毗邻、西与颐和园相望，逛完校园可以再一并走完这里历史遗迹。</p>
-                <img src="../assets/北京1.png" />
+                <img src="../assets/beijing1.png" />
               </div>
             </div>
           </div>
@@ -440,6 +440,10 @@ export default defineComponent ({
     const onClickLeft = () => {
       router.go(-1);
     };
+    const goToInfo = () => {
+      router.push("/info");
+    };
+
     return {
       onClickLeft,
       onClickRight,
@@ -450,6 +454,7 @@ export default defineComponent ({
       collapseChange,
       done,
       changeScroll,
+      goToInfo,
     };
   }
 });

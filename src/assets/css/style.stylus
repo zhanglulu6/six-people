@@ -56,6 +56,9 @@
   color black
   font-weight 700
 
+.demand .van-field__control
+  text-align right
+
 // 选择目的地页头部
 .choose .van-icon-search::before
   color black
@@ -69,6 +72,12 @@
 
 .choose .van-nav-bar__content
   background #f9f9f9
+
+.choose .van-sidebar-item--select::before
+  background #27d461
+
+.choose .van-tree-select__item--active
+  color #27d461
 
 // 全部的定制行程头部
 .precious .van-icon-search::before
@@ -112,8 +121,11 @@
   font-size 0.5rem
   color black
 
+.travel-detail .detail-main .detail-main-third p[data-v-7dca5758]
+  font-size 0.45rem!@important
+
 .travel-detail  .detail-top li .top-first span[data-v-b998bf44]
-  font-size 35px
+  font-size 30px
   font-weight 500
 
 .travel-detail .detail-top li .top-first h6[data-v-b998bf44]
@@ -166,6 +178,13 @@
 
 .address-detail .address-detail .detail-nine p[data-v-4bd98430]
   font-size 12px
+
+// 目的地第一次点击页面
+.ask .detail-top-first11 .van-icon-arrow-left::before
+  color black
+
+.ask .van-button--normal
+  font-size 0.5rem
 
 // 蒋粤
 //登录页全局样式

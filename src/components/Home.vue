@@ -10,7 +10,7 @@
       >
         {{ item.title }}
       </van-tabbar-item>
-      <img src="../assets/首页底部.png" class="home-img" @click="goToRemand" />
+      <img src="../assets/indexfooter.png" class="home-img" @click="goToRemand" />
       <span @click="goToRemand">提交需求</span>
     </van-tabbar>
   </div>

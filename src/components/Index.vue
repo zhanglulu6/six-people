@@ -37,7 +37,7 @@
     <!-- 首页目的地图片 -->
     <div class="address-photo">
       <ul class="address-photo-ul">
-        <li v-for="item in addressPhotoList" :key="item.id" @click="goToAddressDetail">
+        <li v-for="item in addressPhotoList" :key="item.id" @click="goToAsk(item.id)">
           <img :src="item.imgUrl" />
           <span>{{ item.title }}</span>
         </li>
@@ -145,8 +145,8 @@ export default defineComponent ({
     const goToTravelDetail = (id) => {
       router.push("/traveldetail/" + id);
     };
-    const goToAddressDetail = () => {
-      router.push("/addressdetail");
+    const goToAsk = (id) => {
+      router.push("/ask/"+ id);
     };
 
     // 加载中
@@ -171,7 +171,8 @@ export default defineComponent ({
       goToaddress,
       goToDeepPlay,
       goToTravelDetail,
-      goToAddressDetail,
+      // goToAddressDetail,
+      goToAsk,
     };
   },
   // 1.轮播图接收用传统方式
