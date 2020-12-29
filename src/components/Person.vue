@@ -16,7 +16,7 @@
               <img src="" alt="">
               <span><img src="../assets/personimg/图层 1@2x.png" alt="" style="width:100px;height:35px"></span>
             </div>
-            <div class="edit"><img src="../assets/personimg/编 辑@2x.png" alt="" style="width:30px;height:30px;"/></div>
+            <div class="edit" @click="MyProfile()"><img src="../assets/personimg/编 辑@2x.png" alt="" style="width:30px;height:30px;"/></div>
             <!-- 关于用户信息 -->
             <div class="person-show" >
               <div class="show-img">
@@ -119,6 +119,8 @@ export default {
   //   // 将定义的数据暴露出去
   //   return {receiveaward,value,bgtrue,wdtrue,borcolor,permsg,permunted,onClickLeft,Journey,Demand,TravelFund,received,Moreget};
   // },
+
+
   data() {
     return {
       receiveaward: "领取",
@@ -144,6 +146,10 @@ export default {
     // next();
   },
   methods: {
+    // 我的资料页面
+    MyProfile(){
+      this.$router.push("/myprofile");
+    },
     //点击左边的箭头跳转到登录页
     onClickLeft() {
       this.$router.push("/mine");

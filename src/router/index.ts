@@ -80,6 +80,11 @@ const routes = [
   {
     path: "/chooseaddress",
     component: () => import("../components/ChooseAddress.vue")
+  },
+  // 我的资料页面
+  {
+    path: "/myprofile",
+    component: () => import("../components/MyProfile.vue")
   }
 ];
 

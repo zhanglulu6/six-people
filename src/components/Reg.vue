@@ -19,7 +19,6 @@
         <van-field
           v-model="username"
           label="用户名"
-          
           placeholder="请输入用户名"
           :rules="[{pattern: /^[\u4E00-\u9FA5]+$/, message: '*用户名只能为中文' }]"
         />
@@ -42,7 +41,7 @@
           v-model="phone"
           label="手机号"
           placeholder="手机号"
-          :rules="[{ pattern:/^1[3|4|5|7|8][0-9]{9}$/, message: '*请正确填写11位号码' }]"
+          :rules="[{ pattern:/^1[3|4|5|7|8][0-9]{9}$/, message: '*请输入11位有效的号码' }]"
         />
       </div>
 
@@ -69,8 +68,6 @@
         >
           <template #button>
             <van-button size="small" type="primary" class="code-button" @click="sendcode()" :color="isfalse" >{{ getcode }}</van-button>
-            <!-- <van-count-down :time="time" /> -->
-            <!-- <span style="font-size:14px;position: absolute;top:9px;right:-45px;" class="code-timer">{{ count }}</span> -->
           </template>
         </van-field>
       </div>
@@ -94,15 +91,11 @@ export default {
       address: "",
       code: "",
       istrue: "#ddd",
-      // istrue: "true",
       isfalse:"#17c25c",
-      // time:  60 * 1000,
-      // yzm: "获取验证码"
       show: true,
 	    count: '',
       timer: null,
       getcode:"获取验证码"
-      // pattern: /^[\u4E00-\u9FA5]+$/
     }
   },
   computed: {
@@ -112,10 +105,6 @@ export default {
       return this.$store.state.reg.Regdata;
     }
   },
-  mounted() {
-    
-  },
-
   methods: {
     onClickLeft() {
       this.$router.push("/reason");
@@ -152,7 +141,6 @@ export default {
     },
     //注册来跳转页面
     reg(){
-      
       this.$store.dispatch("reg/getRegactions",{
         // 传入的参数
         username: this.username,
@@ -164,6 +152,10 @@ export default {
       //msg就相当于是从获取数据结束之后返回的提示信息
       if(this.msg === '注册成功'){
         Toast('注册成功');
+        localStorage.setItem('phone', this.phone);
+        localStorage.setItem('username', this.username);
+        localStorage.setItem('email', this.email);
+        localStorage.setItem('address', this.address);
         this.istrue = "#d3d80c";
         // 注册成功跳转登录页面然后再进入个人中心
         this.$router.push("./Mine");

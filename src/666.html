@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  for(var i =0;i<3;i++){
+    setTimeout(function(){
+      console.log(i);
+  // 3次3
+  // 每一次for循环的时候，settimeout都执行一次，但是里面的函数没有被执行，而是被放到了任务队列里面，等待执行，for循环了3次，就放了3次，当主线程执行完成后，才进入任务队列里面执行。
+    },1000)
+  }
+
+  for(let i =0;i<3;i++){
+    setTimeout(function(){
+      console.log(i);
+      //依次输出0,1,2
+      // 
+    },1000)
+  }
+</script>
+</html>
