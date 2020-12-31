@@ -17,7 +17,7 @@
         </ul>
         <ul>
           <li>{{ data }}  出发  | {{ people }}</li>
-          <li>无效</li>
+          <li>有效</li>
         </ul>
       </div>
       <img src="../assets/cat.jpg" alt="">
@@ -48,7 +48,7 @@ export default defineComponent ({
     const store = useStore(key);
     let address = localStorage.getItem("confirmCity");
     let people = localStorage.getItem("str");
-    let data = localStorage.getItem("date").substring(0,11);
+    let data = `2020年${localStorage.getItem("date").substring(0,6)}`;
 
     return {
         onClickLeft,

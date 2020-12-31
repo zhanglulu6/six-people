@@ -65,6 +65,13 @@ export default defineComponent({
   .content {
     background: #27d461;
     color: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    font-size: 22px;
+    line-height: 45px;
   }
 }
 </style>

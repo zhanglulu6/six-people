@@ -107,19 +107,19 @@
       <ul>
         <li class="detail-six-li">
           <!-- <img src="../assets/北京7.png" /> -->
-          <van-icon name="comment-circle" color="#ccc" size="60" />
+          <van-icon name="comment-circle" color="#ccc" size="45" />
           <p>私密旅行</p>
           <span>只和家人朋友</span>
         </li>
         <li class="detail-six-li">
           <!-- <img src="../assets/北京6.png" /> -->
-          <van-icon name="underway" color="#ccc" size="60" />
+          <van-icon name="underway" color="#ccc" size="45" />
           <p>1对1顾问</p>
           <span>量身定制</span>
         </li>
         <li class="detail-six-li">
           <!-- <img src="../assets/北京5.png" /> -->
-          <van-icon name="music" color="#ccc" size="60" />
+          <van-icon name="music" color="#ccc" size="45" />
           <p>7x24小时</p>
           <span>全程保障</span>
         </li>
@@ -648,6 +648,7 @@ export default defineComponent ({
   .detail-seven
     background #fff
     color black
+
   .detail-eight
     .detail-top
       margin-bottom 10px
@@ -666,7 +667,7 @@ export default defineComponent ({
             margin-bottom 0
             margin-top 0
             padding-top 10px
-            font-size 25px
+            font-size 20px
 
         h3
           line-height 47px
@@ -723,11 +724,12 @@ export default defineComponent ({
           p
             margin-bottom 0
             margin-top 0
-            padding-top 5px
             font-size 15px
 
           span
+            display block
             font-size 14px
+            margin-top -3px
 
   // 第二方案
   .detail-ten

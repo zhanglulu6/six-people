@@ -115,7 +115,7 @@ export default defineComponent ({
         // })
       }else{
         // 登录失败跳转注册页面
-        Toast('你还没有注册，去注册?');
+        // Toast('你还没有注册，去注册?');
       }
     }
   }

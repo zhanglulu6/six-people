@@ -40,7 +40,7 @@ export default defineComponent ({
   },
   methods: {
     reasonClick() {
-      return this.$router.push("/detail")
+      return this.$router.push("/traveldetail/5")
     }
   }
 })

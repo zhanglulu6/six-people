@@ -67,7 +67,7 @@
           placeholder="短信验证码"
         >
           <template #button>
-            <van-button size="small" type="primary" class="code-button" @click="sendcode()" :color="isfalse" >{{ getcode }}</van-button>
+            <van-button size="small" type="primary" class="code-button" @click="sendcode()" :color="isfalse" :disabled="done1">{{ getcode }}</van-button>
           </template>
         </van-field>
       </div>
@@ -96,7 +96,8 @@ export default defineComponent ({
       show: true,
 	    count: '',
       timer: null,
-      getcode:"获取验证码"
+      getcode:"获取验证码",
+      done1: false
     }
   },
   computed: {
@@ -128,6 +129,7 @@ export default defineComponent ({
       this.count = TIME_COUNT;
       // 使用定时器，将获取验证码替换成倒计时
       const timer = setInterval(() => {
+        this.done1 = true;
         this.getcode = `${this.count}s后可再次发送`;
         this.count --;
         if(this.count == 0){
@@ -136,6 +138,7 @@ export default defineComponent ({
           this.getcode = "发送验证码";
           // 标记是错误的情况
           this.done = false;
+          this.done1 = false;
           this.count = 60;
         }
       },1000);       
@@ -159,9 +162,9 @@ export default defineComponent ({
         localStorage.setItem('address', this.address);
         this.istrue = "#d3d80c";
         // 注册成功跳转登录页面然后再进入个人中心
-        this.$router.push("./Mine");
+        this.$router.push("./Person");
       }else{
-        Toast('注册信息错误无法登录哦');
+        // Toast('注册信息错误无法登录哦');
       }
     },
     radio(){

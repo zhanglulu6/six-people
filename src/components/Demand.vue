@@ -45,7 +45,7 @@
     <!-- 点击人数出现的弹框 -->
     <van-action-sheet v-model:show="showsecond" @select="onSelect">
       <div class="content" style="position:relative">
-        <van-picker show-toolbar  :columns="columns" @confirm="onConfirm"></van-picker>
+        <van-picker show-toolbar  :columns="columns" @confirm="onConfirm" @cancel="onCancel"></van-picker>
         <div class="text-first">
           <span style="margin-right:150px;">成人</span>
           <span>儿童</span>
@@ -145,8 +145,12 @@ export default defineComponent({
     const onConfirm = arr => {
       str.value = `成人${arr[0]},儿童${arr[1]}`;
       localStorage.setItem("str", str.value);
+      showsecond.value = false;
     };
     const onSelect = (item) => {
+      showsecond.value = false;
+    };
+    const onCancel = () => {
       showsecond.value = false;
     };
 
@@ -160,12 +164,12 @@ export default defineComponent({
     // 日期
     let date = ref("");
     let show = ref(false);
-    const formatDate = date => `2020年${date.getMonth() + 1}月${date.getDate()}日`;
+    const formatDate = date => `${date.getMonth() + 1}月${date.getDate()}日`;
     const onConfirmFirst = date1 => {
       const [start, end] = date1;
       show.value = false;
-      // date.value = `${formatDate(start)} - ${formatDate(end)}`;
-      date.value = `${formatDate(start)}`;
+      date.value = `${formatDate(start)} - ${formatDate(end)}`;
+      // date.value = `${formatDate(start)}`;
       localStorage.setItem("date", date.value);
     };
     
@@ -200,6 +204,7 @@ export default defineComponent({
       // phone1,
       value,
       value1,
+      onCancel, 
     };
   }
 });

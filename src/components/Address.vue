@@ -14,7 +14,7 @@
         </li>
       </ul>
     
-  <div class="recommend">
+  <div class="recommend" @click="godetail">
     <h3>顾问推荐行程</h3>
     <div v-for="item in bottom" :key="item.id" class="line"> 
        <img :src="item.imgUrl" alt="">
@@ -60,12 +60,15 @@ export default defineComponent({
         const res = await getCityListApi({ id: this.id });  
         this.top = res.listtop;
         this.bottom = res.listbottom;        
-        console.log(res);        
+        // console.log(res);        
       },
       itemClick(index) {
         this.id = index + 1;
-        console.log(this.id);
+        // console.log(this.id);
         this.getCitylist();
+      },
+      godetail() {
+        this.$router.push("/AddressDetail")
       }
     } 
  })
@@ -122,7 +125,7 @@ header
 
 .main-right .p3 
   font-size 12px
-  width 50px
+  width 80px
   text-align left
 
 h3 
@@ -143,6 +146,7 @@ h3
   margin 0
   height 46px
   overflow hidden
+  text-align left
 
 .recommend .p2
   font-size 12px

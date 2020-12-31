@@ -153,6 +153,7 @@ export default defineComponent ({
     Toast.loading({
       message: '加载中...',
       forbidClick: true,
+      duration: 1,
     });
 
     return {
@@ -299,17 +300,10 @@ export default defineComponent ({
       
 
       .imgWordWidth 
-<<<<<<< HEAD
-        margin-top 0
-        margin-bottom 0
-        font-size 16px    
-
-=======
         margin-top: 0
         margin-bottom: 0
         font-size: 16px
       
->>>>>>> maosuling
   .custom-indicator 
     position absolute
     top 35%
@@ -390,6 +384,7 @@ export default defineComponent ({
         img
           width 100px
           height 100px
+          border-radius 5px
 
         span
           position absolute
@@ -449,6 +444,7 @@ export default defineComponent ({
         img
           width 140px
           height 170px
+          border-radius 5px
           // border 2px solid #eee
 
         span

@@ -105,8 +105,16 @@ const routes = [
   // 我的资料页面
   },
   {
+    path: "/traveldetail",
+    component: () => import("../components/TravelDetail.vue")
+  },
+  {
     path: "/myprofile",
     component: () => import("../components/MyProfile.vue")
+  },
+  {
+    path: "/:catchAll(.*)",
+    component: () => import("../components/404.vue")
   }
 ];
 

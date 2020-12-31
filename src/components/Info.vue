@@ -3,7 +3,6 @@
     <van-sticky @scroll="change">
        <van-nav-bar 
        title="固东银杏村" 
-       left-arrow 
        v-if="done"
        @click="go"
        />

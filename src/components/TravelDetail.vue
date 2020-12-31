@@ -272,6 +272,7 @@ export default defineComponent({
         text-align: left;
         margin-bottom: 0;
         margin-bottom: 15px;
+        font-size: 20px;
       }
 
       .top-five {
